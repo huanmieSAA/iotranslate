@@ -1,3 +1,3 @@
 # iotranslate
-将Tetr.io的内容为中文
-提交翻译修改未完成.txt
+将Tetr.io的内容翻译成中文
+想提交翻译请修改未完成.txt
