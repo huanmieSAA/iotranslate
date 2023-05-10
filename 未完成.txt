@@ -280,7 +280,7 @@
       "run slowly to keep other programs running smoothly": "较慢运行以防使其他程序卡顿",
       "render at a low resolution": "在低分辨率下渲染",
       "less precision on counters": "低精度计时器",
-      "always simplify multiplayer thumbnails": "",
+      "always simplify multiplayer thumbnails": "始终简化多人模式缩略图",
       "do not animate background in super lobbies": "禁用超级房间内滚动显示玩家",
       "no background in menus": "关闭菜单背景",
       "filter profanity in chat": "",
