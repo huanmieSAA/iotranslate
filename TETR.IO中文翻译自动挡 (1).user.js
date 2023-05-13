@@ -2,7 +2,7 @@
 // @name         TETR.IO中文翻译自动档V2
 // @namespace    https://github.com/huanmieSAA/iotranslate
 // @version      2.1
-// @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响 2.1更新：玩家id基本将不会被翻译，如果仍有请反馈
+// @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响 2.1更新：玩家id在大多数情况下将不会被翻译
 // @match        https://*.tetr.io/*
 // @grant        none
 // ==/UserScript==
@@ -839,8 +839,7 @@
     function shouldExclude(node) {
         let currentNode = node;
         while (currentNode) {
-            if (currentNode.nodeType === Node.ELEMENT_NODE && (currentNode.getAttribute("data-uid") === "5f4ca7f5fdcc602e78a65bba" || currentNode.classList.contains("user")||(currentNode.matches('.oob_modal.tetra_modal.has_banner') ||
-                    currentNode.matches('.leagueplayer_name') ||
+            if (currentNode.nodeType === Node.ELEMENT_NODE && (currentNode.getAttribute("data-uid") === "5f4ca7f5fdcc602e78a65bba" || currentNode.classList.contains("user")||(currentNode.matches('.leagueplayer_name') ||
                     currentNode.classList.contains('primary')|| currentNode.getAttribute("id") === "breadcrumbs") )) {
                 return true;
             }
