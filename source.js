@@ -335,8 +335,6 @@
       "":"",
       "":"",
       "":"",
-      "":"",
-      "":"",
         //举报相关文本
       "REPORT": "举报",
       "please choose a category to report": "请选择向TETR.IO管理员报告",
@@ -849,7 +847,9 @@
       "support cannot help you here.": "赞助对解除封禁无效。",
       "if you believe you were banned in error,": "如果你认为你被封禁是错误的、",
       "YOU HAVE BEEN BLOCKED FROM TETR.IO": "您已被阻止进入 TETR.IO 网站",
-      "A connection error has occured": "发生了一个连接错误"
+      "A connection error has occured": "发生了一个连接错误",
+      "GAME CANCELLED":"对局中止",
+      "THIS GAME WAS CANCELLED BECAUSE A PLAYER HAS LEFT.YOUR RATING WILL NOT BE ADJUSTED.":"由于一名玩家中途退出，本局游戏已中止。你的评分不会受到调整。"
     };
 
     // 定义一个函数以替换页面上的文本
