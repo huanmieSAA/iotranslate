@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译自动档V2
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      2.0
-// @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响
+// @version      2.1
+// @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响 2.1更新：玩家id基本将不会被翻译，如果仍有请反馈
 // @match        https://*.tetr.io/*
 // @grant        none
 // ==/UserScript==
@@ -10,7 +10,7 @@
 (function() {
     'use strict';
 
-    // Define the text mapping table
+    // 定义文本映射表
     const textMap = {
         //初始界面文本
       "JOIN": "加入",
@@ -171,6 +171,7 @@
       "EXPERIMENTAL": "实验选项",
       "garbage passthrough": "垃圾行穿透",
       "limited": "限制",
+        "LIMITED":"限制",
       "ZERO": "无",
       "opposing attacks in transit always cancel eachother out": "发送过程中的对立攻击总是相互抵消的。",
       "opposing attacks in transit cancel out while garbage is flying": "发送过程中的对立攻击能被抵消，垃圾行偶尔会飞来。",
@@ -819,7 +820,7 @@
       "A connection error has occured": "发生了一个连接错误"
     };
 
-    // Define a function to replace text on the page
+    // 定义一个函数以替换页面上的文本
     function replaceText() {
         const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
         while (walker.nextNode()) {
@@ -834,22 +835,23 @@
         }
     }
 
-    // Check if the given node or any of its ancestors have the data-uid attribute set to "5f4ca7f5fdcc602e78a65bba"
+    // 检查给定的节点及其祖族元素是否包含应该排除的元素
     function shouldExclude(node) {
         let currentNode = node;
         while (currentNode) {
-            if (currentNode.nodeType === Node.ELEMENT_NODE && currentNode.getAttribute("data-uid") === "5f4ca7f5fdcc602e78a65bba") {
+            if (currentNode.nodeType === Node.ELEMENT_NODE && (currentNode.getAttribute("data-uid") === "5f4ca7f5fdcc602e78a65bba" || currentNode.classList.contains("user")||(currentNode.matches('.oob_modal.tetra_modal.has_banner') ||
+                    currentNode.matches('.leagueplayer_name') ||
+                    currentNode.classList.contains('primary')|| currentNode.getAttribute("id") === "breadcrumbs") )) {
                 return true;
             }
             currentNode = currentNode.parentNode;
         }
         return false;
     }
-
-    // Replace text on the page when the script is first loaded
+   // 当脚本第一次加载时替换页面上的文本
     replaceText();
 
-    // Use a MutationObserver to automatically replace text when the page is updated
+  // 使用MutationObserver在页面更新时自动替换文本
     const observer = new MutationObserver(replaceText);
     observer.observe(document.body, { childList: true, subtree: true });
 })();
