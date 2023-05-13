@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         TETR.IO中文翻译自动档V2
+// @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
 // @version      2.2
 // @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响 2.1更新：玩家id在大多数情况下将不会被翻译 2.2更新：新增个人空间翻译内容.
