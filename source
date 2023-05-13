@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译自动档V2
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      2.1
-// @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响 2.1更新：玩家id在大多数情况下将不会被翻译
+// @version      2.2
+// @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响 2.1更新：玩家id在大多数情况下将不会被翻译 2.2更新：新增个人空间翻译内容
 // @match        https://*.tetr.io/*
 // @grant        none
 // ==/UserScript==
@@ -305,6 +305,38 @@
       "FINAL TIME":"最终时间",
       "FINAL SCORE":"最终得分",
       "RESULTS":"比赛结果",
+      "got a new personal best in 40 LINES with a time of":"在40行挑战中取得了新的个人最好成绩，时间为",
+      "got a new personal best in BLITZ with a score of":"在闪电战中取得了新的个人最好成绩，得分为",
+      "has become a":"成为了",
+      "got a new personal best in 5,000,000 BLAST with a time of":"在5,000,000 BLAST中获得了新的个人最佳成绩，时间为",
+      "received the":"取得了",
+      "badge":"徽章",
+      "achieved":"达成",
+      "rank":"段位",
+      "SCORES":"分数",
+      "LATEST NEWS":"最新动态",
+      "VIEW TETRA LEAGUE RECORD":"查看TETRA联赛回放",
+      "VIEW PERSONAL BEST":"查看最好成绩",
+      "VIEW ALL 40 LINES RECORDS":"查看全部的40行挑战回放",
+      "Achieved":"达成于",
+      "months":"月",
+      "ago":"前",
+      "VIEW ALL BLITZ RECORDS":"查看全部的闪电战回放",
+      "VIEW ALL RECENT RECORDS":"查看全部的近期回放",
+      "RECORD":"回放",
+      "VIEW":"查看",
+      "PLAY TIME":"游戏时长",
+      "ONLINE GAMES":"游戏场次",
+      "OF WHICH WINS":"获胜场次",
+      "EXPAND":"展开",
+      "":"",
+      "":"",
+      "":"",
+      "":"",
+      "":"",
+      "":"",
+      "":"",
+      "":"",
         //举报相关文本
       "REPORT": "举报",
       "please choose a category to report": "请选择向TETR.IO管理员报告",
@@ -840,7 +872,7 @@
         let currentNode = node;
         while (currentNode) {
             if (currentNode.nodeType === Node.ELEMENT_NODE && (currentNode.getAttribute("data-uid") === "5f4ca7f5fdcc602e78a65bba" || currentNode.classList.contains("user")||(currentNode.matches('.leagueplayer_name') ||
-                    currentNode.classList.contains('primary')|| currentNode.getAttribute("id") === "breadcrumbs") )) {
+                    currentNode.classList.contains('primary')|| currentNode.classList.contains('uniflex-item')||currentNode.getAttribute("id") === "breadcrumbs") )) {
                 return true;
             }
             currentNode = currentNode.parentNode;
