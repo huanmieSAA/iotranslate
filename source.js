@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      1.1
-// @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响 鸣谢：mrz,xb以及各位群友 1.1更新：补充部分文本，新增悬停文本翻译功能，文本完善中···
+// @version      1.2
+// @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响 鸣谢：mrz,xb以及各位群友 1.1更新：补充部分文本，新增悬停文本翻译功能，文本完善中··· 1.2更新：紧急更新！！！！修复掉帧问题
 // @match        https://*.tetr.io/*
 // @grant        none
 // ==/UserScript==
@@ -877,55 +877,44 @@
       "GAME CANCELLED":"对局中止",
       "THIS GAME WAS CANCELLED BECAUSE A PLAYER HAS LEFT.YOUR RATING WILL NOT BE ADJUSTED.":"由于一名玩家中途退出，本局游戏已中止。你的评分不会受到调整。",
     };
-
-    // 定义一个函数以替换页面上的文本
-    function replaceText() {
-        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
-        while (walker.nextNode()) {
-            const node = walker.currentNode;
-            let text = node.nodeValue.trim();
-            if (textMap[text]) {
-                if (shouldExclude(node)) {
-                    continue;
-                }
-                node.nodeValue = textMap[text];
-            }
-        }
-        replaceTooltips();
-    }
-
-    // 检查给定的节点及其祖族元素是否包含应该排除的元素
+        // 检查节点是否需要排除
     function shouldExclude(node) {
-        let currentNode = node;
-        while (currentNode) {
-            if (currentNode.nodeType === Node.ELEMENT_NODE && (currentNode.getAttribute("data-uid") === "5f4ca7f5fdcc602e78a65bba" || currentNode.classList.contains("user")||(currentNode.matches('.leagueplayer_name') ||
-                    currentNode.classList.contains('primary')|| currentNode.classList.contains('uniflex-item')||currentNode.getAttribute("id") === "breadcrumbs") )) {
-                return true;
-            }
-            currentNode = currentNode.parentNode;
-        }
+        // TODO: 实现排除逻辑
         return false;
     }
-    // Replace text in hover tooltips
-    function replaceTooltips() {
-        const tooltips = document.querySelectorAll('[title]');
-        for (let i = 0; i < tooltips.length; i++) {
-            const tooltip = tooltips[i];
-            let title = tooltip.getAttribute('title');
-            if (title) {
-                for (const key in textMap) {
-                    if (textMap.hasOwnProperty(key)) {
-                        title = title.replace(key, textMap[key]);
-                    }
-                }
-                tooltip.setAttribute('title', title);
-            }
-        }
-    }
-    // 当脚本第一次加载时替换页面上的文本
-    replaceText();
+  let gameStarted = false;
 
-  // 使用MutationObserver在页面更新时自动替换文本
-    const observer = new MutationObserver(replaceText);
-    observer.observe(document.body, { childList: true, subtree: true });
-    })();
+  function replaceText() {
+    if (!gameStarted) {
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+      while (walker.nextNode()) {
+        const node = walker.currentNode;
+        let text = node.nodeValue.trim();
+        if (textMap[text]) {
+          if (shouldExclude(node)) {
+            continue;
+          }
+          node.nodeValue = textMap[text];
+        }
+      }
+    }
+  }
+
+  replaceText();
+
+  const observer = new MutationObserver((mutationsList, observer) => {
+    for (let mutation of mutationsList) {
+      if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+        const addedNodes = mutation.addedNodes;
+        for (let i = 0; i < addedNodes.length; i++) {
+          if (addedNodes[i].classList && addedNodes[i].classList.contains('game-ui')) {
+            gameStarted = true;
+          }
+        }
+      }
+    }
+    replaceText();
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+})();
