@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      1.2
-// @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响 鸣谢：mrz,xb以及各位群友 1.1更新：补充部分文本，新增悬停文本翻译功能，文本完善中··· 1.2更新：紧急更新！！！！修复掉帧问题
+// @version      1.2.1
+// @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响 鸣谢：mrz,xb以及各位群友 1.1更新：补充部分文本，新增悬停文本翻译功能，文本完善中··· 1.2更新：紧急更新！！！！修复掉帧问题 1.2.1更新：修正了逻辑保证后续文本汉化完整
 // @match        https://*.tetr.io/*
 // @grant        none
 // ==/UserScript==
@@ -877,13 +877,19 @@
       "GAME CANCELLED":"对局中止",
       "THIS GAME WAS CANCELLED BECAUSE A PLAYER HAS LEFT.YOUR RATING WILL NOT BE ADJUSTED.":"由于一名玩家中途退出，本局游戏已中止。你的评分不会受到调整。",
     };
-        // 检查节点是否需要排除
+    // 检查给定的节点及其祖族元素是否包含应该排除的元素
     function shouldExclude(node) {
-        // TODO: 实现排除逻辑
-        return false;
-    }
+        let currentNode = node;
+        while (currentNode) {
+            if (currentNode.nodeType === Node.ELEMENT_NODE && (currentNode.getAttribute("data-uid") === "5f4ca7f5fdcc602e78a65bba" || currentNode.classList.contains("user")||(currentNode.matches('.leagueplayer_name') ||
+                    currentNode.classList.contains('primary')|| currentNode.classList.contains('uniflex-item')||currentNode.getAttribute("id") === "breadcrumbs") )) {
+                return true;
+            }
+            currentNode = currentNode.parentNode;
+        }
+        return false;}
   let gameStarted = false;
-
+    // 定义一个函数以替换页面上的文本
   function replaceText() {
     if (!gameStarted) {
       const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
@@ -897,11 +903,29 @@
           node.nodeValue = textMap[text];
         }
       }
+      replaceTooltips();
     }
   }
 
   replaceText();
-
+    //替换悬停文本
+function replaceTooltips() {
+  const parent = document.body;
+  parent.addEventListener('mouseover', function(event) {
+    const target = event.target;
+    if (target.hasAttribute('title')) {
+      let title = target.getAttribute('title');
+      for (const key in textMap) {
+        if (textMap.hasOwnProperty(key)) {
+          title = title.replace(key, textMap[key]);
+        }
+      }
+      target.setAttribute('title', title);
+      target.removeAttribute('data-original-title');
+    }
+  }, true);
+}
+    //使用MutationObserver在页面更新时自动替换文本
   const observer = new MutationObserver((mutationsList, observer) => {
     for (let mutation of mutationsList) {
       if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
