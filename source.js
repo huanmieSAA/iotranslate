@@ -37,7 +37,7 @@
         "Delayed Auto Shift: the time between the initial keypress and the start of its automatic repeat movement, measured in frames.": "自动移动延迟：从按下移动键到开始连续自动移动所需的时间，单位为帧。",
         "DAS Cut Delay: if not 0, any ongoing DAS movement will pause for a set amount of time after dropping/rotating a piece, measured in frames.": "DAS切断延迟，如果不为0，任何正在进行的DAS运动将在下落/旋转一个方块后暂停一段设定的时间，以帧计算。",
         "Soft Drop Factor: the factor with which soft drops change the gravity speed.": "软降系数：改变软降重力速度的系数。越大越快",
-        "If enabled, when a piece locks on its own, the hard drop key becomes unavailable for a few frames. This prevents accidental hard drops.": "当方块自行锁定时，硬降键会有几帧无法使用。这可以防止意外的硬降。",
+        "If enabled, when a piece locks on its own, the hard drop key becomes unavailable for a few frames. This prevents accidental hard drops.": "如果启用，当方块自行锁定时，硬降键会有几帧无法使用。这可以防止意外的硬降。",
         "If enabled, DAS charge is cancelled when you change directions.": "如果启用：当你中途改变移动方向时，das充能会重新计算。",
         "": "",
         "": "",
