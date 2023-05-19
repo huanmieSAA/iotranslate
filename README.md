@@ -22,7 +22,7 @@
 |          浏览器           |                          脚本管理器                          |
 | :-----------------------: | :----------------------------------------------------------: |
 | 基于 Chromium 内核的浏览器 | [Tampermonkey](http://tampermonkey.net/) / [violentmonkey](https://violentmonkey.github.io/) |
-|       Safari 浏览器       |                         没有mac设备                          |
+|       Safari 浏览器       |                         没有 Mac 设备                          |
 |      Firefox 浏览器       |                           暂未测试                           |
 
 #### 安装脚本
