@@ -7,11 +7,11 @@
 
 [![GitHub issues](https://img.shields.io/github/issues/huanmieSAA/iotranslate?style=flat-square)](https://github.com/huanmieSAA/iotranslate/issues)[![GitHub file size in bytes on a specified ref (branch/commit/tag)](https://img.shields.io/github/size/huanmieSAA/iotranslate/source.js?branch=main&label=script%20size&style=flat-square)](https://github.com/huanmieSAA/iotranslate/blob/main/source.js)[![GitHub Repo stars](https://img.shields.io/github/stars/huanmieSAA/iotranslate?style=flat-square)](https://github.com/huanmieSAA/iotranslate/stargazers)[![GitHub forks](https://img.shields.io/github/forks/huanmieSAA/iotranslate?style=flat-square)](https://github.com/huanmieSAA/iotranslate/network)[![Greasy Fork](https://img.shields.io/greasyfork/dt/466016?color=%23007EC6&label=GreasyFork&style=flat-square)](https://greasyfork.org/zh-CN/scripts/466016)
 
-##  功能与缺陷
+##  功能
 
 - 使用文本匹配替换将 [TETR.IO](https://tetr.io/) 翻译为中文
 
-- 因使用了文本匹配来翻译内容所以聊天内容可能也会被替换
+
 
 ## 安装
 
