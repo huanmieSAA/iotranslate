@@ -9,7 +9,7 @@
 
 ##  功能与缺陷
 
-- 使用文本匹配替换将[TETR.IO](https://tetr.io/)翻译为中文
+- 使用文本匹配替换将 [TETR.IO](https://tetr.io/) 翻译为中文
 
 - 因使用了文本匹配来翻译内容所以聊天内容可能也会被替换
 
@@ -21,7 +21,7 @@
 
 |          浏览器           |                          脚本管理器                          |
 | :-----------------------: | :----------------------------------------------------------: |
-| 基于Chromium 内核的浏览器 | [Tampermonkey](http://tampermonkey.net/)/[violentmonkey](https://violentmonkey.github.io/) |
+| 基于 Chromium 内核的浏览器 | [Tampermonkey](http://tampermonkey.net/) / [violentmonkey](https://violentmonkey.github.io/) |
 |       Safari 浏览器       |                         没有mac设备                          |
 |      Firefox 浏览器       |                           暂未测试                           |
 
@@ -29,7 +29,7 @@
 
 请在安装脚本管理器后再安装脚本
 
-前往[TETR.IO中文翻译 - Greasy Fork](https://greasyfork.org/zh-CN/scripts/466016)点击[安装此脚本](https://greasyfork.org/scripts/466016-tetr-io%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91/code/TETRIO%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91.user.js)后确认安装即可
+前往 [TETR.IO中文翻译 - Greasy Fork](https://greasyfork.org/zh-CN/scripts/466016) 点击 [安装此脚本](https://greasyfork.org/scripts/466016-tetr-io%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91/code/TETRIO%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91.user.js) 后确认安装即可
 
 ## 待办
 
@@ -41,6 +41,6 @@
 
 目前大部分常用内容已经翻译，但仍需润色和补充，欢迎提交翻译
 
-词库在[语言文本.txt](./语言文本.txt)中，同时希望大家可以参考[俄罗斯方块中文维基 - 灰机Wiki](https://tetris.huijiwiki.com/wiki)中的词条对相关术语进行润色
+词库在 [语言文本.txt](./语言文本.txt) 中，同时希望大家可以参考 [俄罗斯方块中文维基 - 灰机Wiki](https://tetris.huijiwiki.com/wiki) 中的词条对相关术语进行润色
 
 ## 感谢
