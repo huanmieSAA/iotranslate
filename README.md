@@ -3,7 +3,7 @@
 </p>
 
 
-# [TETR.IO 中文插件][project-url]
+# [TETR.IO 中文插件](https://github.com/huanmieSAA/iotranslate)
 
 [![GitHub issues](https://img.shields.io/github/issues/huanmieSAA/iotranslate?style=flat-square)](https://github.com/huanmieSAA/iotranslate/issues)[![GitHub file size in bytes on a specified ref (branch/commit/tag)](https://img.shields.io/github/size/huanmieSAA/iotranslate/source.js?branch=main&label=script%20size&style=flat-square)](https://github.com/huanmieSAA/iotranslate/blob/main/source.js)[![GitHub Repo stars](https://img.shields.io/github/stars/huanmieSAA/iotranslate?style=flat-square)](https://github.com/huanmieSAA/iotranslate/stargazers)[![GitHub forks](https://img.shields.io/github/forks/huanmieSAA/iotranslate?style=flat-square)](https://github.com/huanmieSAA/iotranslate/network)[![Greasy Fork](https://img.shields.io/greasyfork/dt/466016?color=%23007EC6&label=GreasyFork&style=flat-square)](https://greasyfork.org/zh-CN/scripts/466016)
 
