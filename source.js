@@ -1249,49 +1249,49 @@
         return false;
     }
     
-    // 替换页面文本
-    function replaceText(node) {
-        if (node.nodeType === Node.ELEMENT_NODE) {
-            let text = node.innerHTML;
-            const regex = /<.*?>/g;
-            let tags = text.match(regex);
-            text = text.replace(regex, "<>").replaceAll("&nbsp;", " ");
-            const nodeNameList = ["DIV", "H1", "H2", "H3", "P", "A", "SPAN"];
-            if (nodeNameList.includes(node.nodeName) && textMap.hasOwnProperty(text) && !shouldExclude(node)) {
-                text = textMap[text];
-                node.innerHTML = text.replaceAll("<>", () => tags.shift() ?? "<>");
+// 替换页面文本
+function replaceText(node) {
+    if (node.nodeType === Node.ELEMENT_NODE) {
+        let text = node.innerHTML;
+        const regex = /<.*?>/g;
+        let tags = text.match(regex);
+        text = text.replace(regex, "<>").replace(/&nbsp;/g, " ");
+        const nodeNameList = ["DIV", "H1", "H2", "H3", "P", "A", "SPAN"];
+        if (nodeNameList.includes(node.nodeName) && textMap.hasOwnProperty(text) && !shouldExclude(node)) {
+            text = textMap[text];
+            node.innerHTML = text.replace(/<>+/g, () => tags.shift() ?? "<>");
+        }
+        // 替换占位符
+        if (node.hasAttribute?.("placeholder") && placeholderMap.hasOwnProperty(node.getAttribute("placeholder"))) {
+            node.setAttribute("placeholder", placeholderMap[node.getAttribute("placeholder")]);
+        }
+        // 替换伪元素文本
+        const styleSheet = document.styleSheets[0];
+        for (let [key, value] of Object.entries(pseudoElementMap)) {
+            if (node.matches(key.split("::")[0])) {
+                styleSheet.addRule(key, `content: "${value}";`);
             }
-            //替换占位符
-            if (node.hasAttribute?.("placeholder") && placeholderMap.hasOwnProperty(node.getAttribute("placeholder"))) {
-                node.setAttribute("placeholder", placeholderMap[node.getAttribute("placeholder")]);
-            }
-            //替换伪元素文本
-            const styleSheet = document.styleSheets[0];
-            for (let [key, value] of Object.entries(pseudoElementMap)) {
-                if (node.matches(key.split("::")[0])) {
-                    styleSheet.addRule(key, `content: "${value}";`);
+        }
+    } else if (node.nodeType === Node.TEXT_NODE) {
+        let text = node.nodeValue.trim();
+        if (textMap.hasOwnProperty(text) && !shouldExclude(node)) {
+            node.nodeValue = textMap[text];
+        } else {
+            for (let [key, value] of Object.entries(specialTextMap)) {
+                const regex = new RegExp(key, "g");
+                const replacedText = text.replace(regex, value);
+                if (text !== replacedText) {
+                    node.nodeValue = replacedText;
+                    text = replacedText;
                 }
             }
-        } else if (node.nodeType === Node.TEXT_NODE) {
-            let text = node.nodeValue.trim();
-            if (textMap.hasOwnProperty(text) && !shouldExclude(node)) {
-                node.nodeValue = textMap[text];
-            } else {
-                for (let [key, value] of Object.entries(specialTextMap)) {
-                    const regex = new RegExp(key, "g");
-                    const replacedText = text.replace(regex, value);
-                    if (text !== replacedText) {
-                        node.nodeValue = replacedText;
-                        text = replacedText;
-                    }
-                }
-            }
-            return;
         }
-        for (let i of node.childNodes) {
-            replaceText(i);
-        }
+        return;
     }
+    for (let i of node.childNodes) {
+        replaceText(i);
+    }
+}
     
     // 替换悬停文本
     function replaceTooltips(event) {
