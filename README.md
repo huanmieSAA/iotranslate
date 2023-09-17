@@ -15,6 +15,28 @@
 
 ## 安装
 
+---
+
+### 客户端
+
+```JavaScript
+await import('https://greasyfork.org/scripts/466016-tetr-io中文翻译/code/TETRIO中文翻译.user.js')
+```
+
+或
+
+```JavaScript
+(() => {
+    const e = document.createElement('script')
+    e.setAttribute('src', 'https://greasyfork.org/scripts/466016-tetr-io中文翻译/code/TETRIO中文翻译.user.js')
+    document.head.appendChild(e)
+})()
+```
+
+基本上第一种方法就行了 第二种方法当备选
+
+---
+
 ### 浏览器
 
 #### 安装脚本管理器
