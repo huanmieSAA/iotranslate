@@ -1,17 +1,17 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      1.2.4
-// @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响 鸣谢：mrz,xb以及各位群友1.2.4更新：优化逻辑，补充文本
+// @version      1.2.5
+// @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响 鸣谢：mrz,xb以及各位群友1.2.5更新：补充部分文本，大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加的
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
 // ==/UserScript==
 
 (() => {
     "use strict";
-    
+
     // 定义文本映射表
-    
+
     // 常规文本
     const textMap = {
         "change settings for": "更改设置为",
@@ -613,7 +613,7 @@
         "forfeit game": "退出游戏",
         "retry game": "重新开始",
         "open chat": "打开聊天框",
-        "pick targeting strategy": "挑选目标策略",
+        "pick targeting strategy": "选择瞄准目标策略",
         "move in menus": "移动菜单",
         "confirm in menus": "在菜单中确认",
         "back in menus": "返回菜单中",
@@ -621,6 +621,10 @@
         "controllers can be set up in CUSTOM controls - just press the controller buttons you wish to bind.": "手柄键位可以在自定义中设置 - 只需点击想要更改的键位并按下你想绑定的按键。",
         "controller sensitivity": "按键灵敏度",
         "vibration intensity": "振动强度",
+        "targeting strategy even": "瞄准策略:平均",
+        "targeting strategy eliminations": "瞄准策略：追击",
+        "targeting strategy random": "瞄准策略：随机",
+        "targeting strategy payback": "瞄准策略：反击",
         "WEAK": "弱",
         "STRONG": "强",
         "LOW": "低",
@@ -628,10 +632,10 @@
         "[NOT SET]": "[未设置]",
         "hover over a setting for more info": "将鼠标悬停在设置名称上查看详细说明",
         "change account settings": "更改账户设置",
-        "targeting strategy 1": "锁定目标策略1",
-        "targeting strategy 2": "锁定目标策略2",
-        "targeting strategy 3": "锁定目标策略3",
-        "targeting strategy 4": "锁定目标策略4",
+        "targeting strategy 1": "瞄准策略1",
+        "targeting strategy 2": "瞄准策略2",
+        "targeting strategy 3": "瞄准策略3",
+        "targeting strategy 4": "瞄准策略4",
         "press any key or button": "按任何按键以绑定键位",
         "click anywhere to remove the keybind": "点击任何地方都可以删除绑定的按键",
         "menus: up": "菜单：上",
@@ -865,6 +869,8 @@
         //好友系统相关文本
         "PEOPLE": "好友",
         "In a": "在一场",
+        "In an": "在一场",
+        "online": "在线",
         "In a private": "在一场私人的",
         "custom room": "自定义房间",
         "game": "对局",
@@ -877,6 +883,7 @@
         "FRIEND": "加为好友",
         "MESSAGE": "发消息",
         "ANONYMOUS": "匿名",
+        "You haven't added any friends yet. Click the FRIEND button on a profile to friend them.": "您还没有添加任何好友。单击他人资料页上的“加为好友”按钮即可将其加为好友",
         "If someone outside of your friends list messages you, they'll appear here.": "如果有在你好友名单之外的人给你发信息，他们会出现在这里。",
         "Not connected to online servers. Sit tight, we'll try to reconnect you in the background.": "没有连接到在线服务器。稍等片刻，我们会尝试在后台进行重连。",
         "In Menus": "在主菜单中",
@@ -899,7 +906,7 @@
         "friended you back": "互相加为好友",
         "Offline": "离线",
         "invited you to": "邀请你",
-        "Ending a private": "等待一场私人",
+        "Ending a private": "结算一场私人",
         "Please be civil. Staff will never ask for your credentials.": "请文明交流。官方永远不会索要您的个人信息。",
         "ONLINE": "在线",
         "Away": "离开",
@@ -907,13 +914,12 @@
         "Busying": "正忙",
         "has come online": "上线了",
         "online now": "在线",
-        "Ending a": "等待一场",
+        "Ending a": "结算一场",
         "You haven't blocked anyone yet.": "你还没有拉黑任何人。",
         "BLOCKED": "黑名单",
         "Nobody's online right now": "现在没有人在线",
         "connected to server": "连接到服务器",
-        "Ending an online": "等待一场在线",
-        "In an ONLINE": "在一场在线",
+        "Ending an online": "结算一场在线",
         "PROFILE": "个人资料",
         "GIFT": "赠送",
         "- MUTUAL FRIENDS": " - 双向好友",
@@ -940,7 +946,7 @@
         "GAME CANCELLED": "对局中止",
         "THIS GAME WAS CANCELLED BECAUSE A PLAYER HAS LEFT.YOUR RATING WILL NOT BE ADJUSTED.": "由于一名玩家中途退出，本局游戏已中止。你的评分不会受到调整。",
     };
-    
+
     // 悬停文本
     const tooltipMap = {
         "Get TETR.IO Desktop": "下载TETR.IO桌面客户端",
@@ -1194,7 +1200,7 @@
         "": "",
         "": "",
     };
-    
+
     // 特殊文本
     const specialTextMap = {
         "([0-9]+) (SECONDS?|seconds?)": "$1秒",
@@ -1208,11 +1214,13 @@
         "loading fonts(.*)": "正在加载字体$1",
         "loading textures(.*)": "正在加载材质$1",
         "loading (.*)": "正在加载$1",
+        "home banner data(.*)": "首页横幅数据$1",
+        "checking for game updates(.*)":"检查游戏更新$1",
         "(.*) this session": "本次会话时间：$1",
         "(.*) ONLINE": "$1人在线",
         "([0-9]+)% towards next level": "离下一个等级还有$1%",
     };
-    
+
     // 占位符
     const placeholderMap = {
         "enter room id or url and hit enter...": "输入房间号或网址并按回车键……",
@@ -1231,12 +1239,12 @@
         "Ǖ find someone…": "Ǖ 搜索用户名……",
         "message...": "发消息……",
     };
-    
+
     // 伪元素（::before, ::after）文本
     const pseudoElementMap = {
         ".replayid::before": "回放id:",
     };
-    
+
     // 检查给定的节点及其祖族元素是否包含应该排除的元素
     function shouldExclude(node) {
         let currentNode = node;
@@ -1248,7 +1256,7 @@
         }
         return false;
     }
-    
+
 // 替换页面文本
 function replaceText(node) {
     if (node.nodeType === Node.ELEMENT_NODE) {
@@ -1292,7 +1300,7 @@ function replaceText(node) {
         replaceText(i);
     }
 }
-    
+
     // 替换悬停文本
     function replaceTooltips(event) {
         const tooltip = event.target;
@@ -1313,7 +1321,7 @@ function replaceText(node) {
             }
         }
     }
-    
+
     function handleMutation(mutationsList) {
         for (let mutation of mutationsList) {
             if (mutation.type === "childList" && mutation.addedNodes.length > 0) {
@@ -1323,9 +1331,9 @@ function replaceText(node) {
             }
         }
     }
-    
+
     replaceText(document.body);
-    
+
     // 使用mouseenter事件替换悬停文本
     document.addEventListener("mouseenter", event => {
         const target = event.target;
@@ -1333,7 +1341,7 @@ function replaceText(node) {
             replaceTooltips(event);
         }
     }, true);
-    
+
     // 使用mouseleave事件还原悬停文本
     document.addEventListener("mouseleave", event => {
         const target = event.target;
@@ -1342,7 +1350,7 @@ function replaceText(node) {
             target.setAttribute("data-original-title", target.getAttribute("title"));
         }
     }, true);
-    
+
     // 使用MutationObserver在页面更新时自动替换文本
     const observer = new MutationObserver(handleMutation);
     observer.observe(document.body, { childList: true, subtree: true });
