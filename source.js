@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      1.2.5
-// @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响 鸣谢：mrz,xb以及各位群友1.2.5更新：补充部分文本，大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加的
+// @version      1.2.6
+// @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响 鸣谢：mrz,xb以及各位群友1.2.6更新：添加对TETR.IO VERGE的翻译支持，大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加的
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
 // ==/UserScript==
@@ -14,6 +14,27 @@
 
     // 常规文本
     const textMap = {
+        "WINS AGAINST OPENERS": "对开局策略高胜率",
+        "WINS AGAINST INF DS'ERS": "对挖掘策略高胜率",
+        "WINS AGAINST STRIDERS": "对火力策略高胜率",
+        "WINS AGAINST PLONKERS": "对反击策略高胜率",
+        "LOSES AGAINST OPENERS": "对开局策略低胜率",
+        "LOSES AGAINST INF DS'ERS": "对挖掘策略低胜率",
+        "LOSES AGAINST STRIDERS": "对火力策略低胜率",
+        "LOSES AGAINST PLONKERS": "对反击策略低胜率",
+        "LOW VS": "低VS",
+        "LOW APM": "低APM",
+        "LOW PPS": "低PPS",
+        "HIGH VS": "高VS",
+        "HIGH APM": "高APM",
+        "HIGH PPS": "高PPS",
+        "PLONKER": "使用反击策略",
+        "INF DS'ER": "使用挖掘策略",
+        "LEVEL HEADED": "头脑清醒",
+        "GOOD MOOD": "手感火热",
+        "BAD MOOD": "手感不佳",
+        "STRIDER": "使用火力策略",
+        "OPENER": "使用开局策略",
         "change settings for": "更改设置为",
         //初始界面文本
         "JOIN": "加入",
@@ -868,10 +889,12 @@
         "ǹ CHANGE": "ǹ 更改",
         //好友系统相关文本
         "PEOPLE": "好友",
-        "In a": "在一场",
-        "In an": "在一场",
+        "In a": "进行一场",
+        "In an": "进行一场",
         "online": "在线",
-        "In a private": "在一场私人的",
+        "private": "私人",
+        "In":"处于",
+        "queue":"匹配中",
         "custom room": "自定义房间",
         "game": "对局",
         "Spectating a": "旁观一场",
@@ -906,7 +929,6 @@
         "friended you back": "互相加为好友",
         "Offline": "离线",
         "invited you to": "邀请你",
-        "Ending a private": "结算一场私人",
         "Please be civil. Staff will never ask for your credentials.": "请文明交流。官方永远不会索要您的个人信息。",
         "ONLINE": "在线",
         "Away": "离开",
@@ -919,7 +941,7 @@
         "BLOCKED": "黑名单",
         "Nobody's online right now": "现在没有人在线",
         "connected to server": "连接到服务器",
-        "Ending an online": "结算一场在线",
+        "Ending an": "结算一场",
         "PROFILE": "个人资料",
         "GIFT": "赠送",
         "- MUTUAL FRIENDS": " - 双向好友",
@@ -1092,9 +1114,11 @@
         "Total time played": "总游玩时间",
         "I enjoyed it!": "我很享受这局游戏！",
         "I did not enjoy it": "我不享受这局游戏",
-        "": "",
-        "": "",
-        "": "",
+        "This user is likely a plonker": "该玩家倾向于使用反击策略",
+        "This user is likely an opener main": "该玩家倾向于使用开局策略",
+        "This user is likely an infnite downstacker": "该玩家倾向于使用挖掘策略",
+        "This user is likely a strider": "该玩家倾向于使用火力策略",
+        "Amount of players who have friended this person": "有多少个玩家将该玩家添加为好友",
         "": "",
         "": "",
         "": "",
@@ -1219,6 +1243,28 @@
         "(.*) this session": "本次会话时间：$1",
         "(.*) ONLINE": "$1人在线",
         "([0-9]+)% towards next level": "离下一个等级还有$1%",
+        "This user's winrate is not heavily affected if they lost their previous match. (.*)": "该玩家的胜率可能不会因他上一场比赛的失败而产生较大影响。$1",
+        "This user's winrate is not heavily affected if they won their previous match. (.*)": "该玩家的胜率可能不会因他上一场比赛的胜利而产生较大影响。$1",
+        "This user tends to continue losing if they lost their previous match. (.*)": "该玩家的胜率可能会因他上一场比赛的失败而降低。$1",
+        "This user tends to continue winning if they won their previous match (.*)": "该玩家的胜率可能会因他上一场比赛的获胜而提高。$1",
+        "This user has a high winrate against openers. (.*)": "该玩家对开局策略有很高的胜率。$1",
+        "This user has a high winrate against striders. (.*)": "该玩家对火力策略有很高的胜率。$1",
+        "This user has a high winrate against inf ds'ers. (.*)": "该玩家对挖掘策略有很高的胜率。$1",
+        "This user has a high winrate against plonkers. (.*)": "该玩家对反击策略有很高的胜率。$1",
+        "This user has a low winrate against openers. (.*)": "该玩家对开局策略有很低的胜率。$1",
+        "This user has a low winrate against striders. (.*)": "该玩家对火力策略有很低的胜率。$1",
+        "This user has a low winrate against inf ds'ers. (.*)": "该玩家对挖掘策略有很低的胜率。$1",
+        "This user has a low winrate against plonkers. (.*)": "该玩家对反击策略有很低的胜率。$1",
+        "This user has a low winrate against plonkers. (.*)": "该玩家对反击策略有很低的胜率。$1",
+        "This user has a high average VS compared to other players (.*)":"该玩家的VS高于平均水平 $1",
+        "This user has a high average APM compared to other players (.*)":"该玩家的APM高于平均水平 $1",
+        "This user has a high average PPS compared to other players (.*)":"该玩家的PPS高于平均水平 $1",
+        "This user has a low average VS compared to other players (.*)":"该玩家的VS低于平均水平 $1",
+        "This user has a low average APM compared to other players (.*)":"该玩家的APM低于平均水平 $1",
+        "This user has a low average PPS compared to other players (.*)":"该玩家的PPS低于平均水平 $1",
+        "Top (.*)":"头部 $1",
+        "Winrate (.*)":"胜率 $1",
+        "Bottom (.*)":"底部 $1",
     };
 
     // 占位符
