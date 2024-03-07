@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      1.2.6
+// @version      1.2.7
 // @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响 鸣谢：mrz,xb以及各位群友。1.2.7更新：修正对部分玩家id被替换的问题，大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加的
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
