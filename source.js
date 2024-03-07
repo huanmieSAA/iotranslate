@@ -2,7 +2,7 @@
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
 // @version      1.2.6
-// @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响 鸣谢：mrz,xb以及各位群友1.2.6更新：添加对TETR.IO VERGE的翻译支持，大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加的
+// @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响 鸣谢：mrz,xb以及各位群友。1.2.7更新：修正对部分玩家id被替换的问题，大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加的
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
 // ==/UserScript==
@@ -946,6 +946,7 @@
         "connected to server": "连接到服务器",
         "Ending an": "正在结算一场",
         "PROFILE": "个人资料",
+        "Couldn't find anyone like that.":"找不到该玩家",
         "GIFT": "赠送",
         "- MUTUAL FRIENDS": " - 双向好友",
         //错误相关文本
@@ -1232,6 +1233,7 @@
     const specialTextMap = {
         "([0-9]+) (SECONDS?|seconds?)": "$1秒",
         "([0-9]+) (MINUTES?|minutes?)": "$1分钟",
+        "([0-9]+) (MINUTE?|minutes?)": "$1分钟",
         "([0-9]+) (HOURS?|hours?)": "$1小时",
         "([0-9]+) (DAYS?|days?)": "$1天",
         "([0-9]+) (MONTHS?|months?)": "$1个月",
@@ -1243,7 +1245,7 @@
         "loading (.*)": "正在加载$1",
         "home banner data(.*)": "首页横幅数据$1",
         "checking for game updates(.*)":"检查游戏更新$1",
-        "(.*) this session": "本次会话时间：$1",
+        "(.*) this session": "本次在线时间：$1",
         "(.*) ONLINE": "$1人在线",
         "([0-9]+)% towards next level": "离下一个等级还有$1%",
         "This user's winrate is not heavily affected if they lost their previous match. (.*)": "该玩家的胜率可能不会因他上一场比赛的落败而产生较大影响。$1",
@@ -1296,17 +1298,27 @@
         ".replayid::before": "回放id:",
     };
 
-    // 检查给定的节点及其祖族元素是否包含应该排除的元素
-    function shouldExclude(node) {
-        let currentNode = node;
-        while (currentNode) {
-            if (currentNode.nodeType === Node.ELEMENT_NODE && (currentNode.getAttribute("data-uid") === "5f4ca7f5fdcc602e78a65bba" || ["breadcrumbs", "dirtyflag_gfx", "dirtyflag_net", "dirtyflag_state", "dirtyflag_client", "dirtyflag_gl"].includes(currentNode.getAttribute("id")) || / (user|leagueplayer_name|primary|uniflex-item) /.test(" " + [...currentNode.classList].join(" ") + " "))) {
-                return true;
-            }
-            currentNode = currentNode.parentNode;
+// 检查给定的节点及其祖族元素是否包含应该排除的元素
+function shouldExclude(node) {
+    let currentNode = node;
+    while (currentNode) {
+        if (
+            currentNode.nodeType === Node.ELEMENT_NODE &&
+            (currentNode.getAttribute("data-uid") === "5f4ca7f5fdcc602e78a65bba" ||
+                ["breadcrumbs", "dirtyflag_gfx", "dirtyflag_net", "dirtyflag_state", "dirtyflag_client", "dirtyflag_gl"].includes(currentNode.getAttribute("id")) ||
+                / (user|leagueplayer_name|primary|uniflex-item) /.test(" " + [...currentNode.classList].join(" ") + " ") ||
+                currentNode === document.querySelector('.tetra_modal h2') ||
+                currentNode.getAttribute("data-username")
+            )
+        ) {
+            return true;
         }
-        return false;
+        currentNode = currentNode.parentNode;
     }
+    return false;
+}
+
+
 
 // 替换页面文本
 function replaceText(node) {
