@@ -2,7 +2,7 @@
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
 // @version      1.2.7
-// @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响 鸣谢：mrz,xb以及各位群友。1.2.7更新：修正对部分玩家id被替换的问题，大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加的
+// @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响 鸣谢：mrz,xb，zhazha120以及各位群友。1.2.8更新：修正了重复还原文本导致的性能问题，大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加的
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
 // ==/UserScript==
@@ -1402,15 +1402,6 @@ function replaceText(node) {
         const target = event.target;
         if (target.hasAttribute?.("title")) {
             replaceTooltips(event);
-        }
-    }, true);
-
-    // 使用mouseleave事件还原悬停文本
-    document.addEventListener("mouseleave", event => {
-        const target = event.target;
-        if (target.hasAttribute?.("title") && tooltipMap.hasOwnProperty(target.getAttribute("title"))) {
-            target.setAttribute("title", tooltipMap[target.getAttribute("title")]);
-            target.setAttribute("data-original-title", target.getAttribute("title"));
         }
     }, true);
 
