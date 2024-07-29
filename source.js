@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      1.3.0
+// @version      1.3.1
 // @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响 鸣谢：mrz,xb，渣渣120以及各位群友。1.3更新：添加BETA1.0新增内容.大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
@@ -665,6 +665,19 @@
         "rounds won with a lower PPS than the opponent": "在每秒方块数（PPS）低于对手的情况下获胜的回合数",
         "Pour intention into each piece, and even a single bag can shake the world.": "慢工出细活。",
         "OPENER MAIN": "开局之王",
+        "Sprinter": "40行爱好者",
+        "All The Single Lines": "单消艺术",
+        "1-8 Stacking": "一八堆叠王",
+        "Mr. Boardwide": "板面天王",
+        "Blitzer": "Blitz爱好者",
+        "Wabi-Sabi": "侘寂",
+        "Secret Grade": "隐藏段位",
+        "Contender": "挑战者",
+        "Reverse Sweep Specialist": "逆转大师",
+        "The Spike of all Time": "超究极必杀爆发",
+        "Speed Player": "速度爱好者",
+        "Plonk": "太极爱好者",
+        "Opener Main": "开局之王",
         "rounds won within 20 seconds": "在20秒内获胜的回合数",
         "Blink and it's over.": "转瞬即逝。",
         "Spin to win.": "转出胜利。",
@@ -732,7 +745,27 @@
         "TRAINED PROFESSIONALS":"专业团队",
         "highest floor discovered in a DUO while both players are using the \"EXPERT MODE\" mod":"在启用“专家模式”，“双人模式”模组的情况下抵达的最高层数",
         "Partners in expertise.":"处理方块我们在行。",
-        "": "",
+        "Zenith Explorer": "天顶探索者",
+        "The Lovers": "恋人",
+        "Tower Climber": "攀塔爱好者",
+        "The Emperor": "皇帝",
+        "Whatever It Takes": "不计代价",
+        "The Responsible One": "责任神",
+        "Strength": "力量",
+        "Swamp Water": "泥泞不堪",
+        "Deadlock": "僵局",
+        "The Grandmaster": "方块大师",
+        "The Escape Artist":"金蝉脱壳",
+        "Emperor's Decadence":"皇帝的懦弱",
+        "Divine Mastery":"天纵奇才",
+        "Temperance":"节制",
+        "Wheel of Fortune":"命运之轮",
+        "A Modern Classic":"现代经典",
+        "The Devil":"恶魔",
+        "The Tower":"高塔",
+        "The Hermit":"隐士",
+        "The Magician":"魔术师",
+        "Trained Professionals":"专业团队",
         "": "",
         "": "",
         "": "",
