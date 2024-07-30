@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      1.3.1
-// @description  将TETR.IO中的内容翻译成中文并自动刷新保证翻译内容基本完成，对性能可能有一点影响 鸣谢：mrz,xb，渣渣120以及各位群友。1.3更新：添加BETA1.0新增内容.大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
+// @version      1.3.2
+// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120以及方块群友。1.3.2更新：重构替换逻辑，补充BETA1.0新增内容.大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
 // @downloadURL https://update.greasyfork.org/scripts/466016/TETRIO%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91.user.js
@@ -210,17 +210,16 @@
         "THIS WEEK'S COUNTRY RANK":"本周地区排名",
         "THIS WEEK'S GLOBAL RANK":"本周全球排名",
         "THIS WEEK'S PERSONAL BEST":"本周个人最高",
-        "(.*)SWAMP WATER(.*)":"大泽之水",
         "AGAIN":"再来一局",
         "EXPERT":"专家模式",
         "a less lenient challenge, for those who dare":"敢于挑战者的选择",
         "EXPERT MODE":"专家模式",
         "reach floor 9 to unlock":"抵达9层解锁",
-        "DOUBLE HOLE GARBAGE":"双洞垃圾",
-        "garbage may sometimes spawn with two holes":"垃圾行有时会生成两列空洞",
+        "DOUBLE HOLE GARBAGE":"空洞诅咒",
+        "garbage may sometimes spawn with two holes":"垃圾行有时会生成两个空洞",
         "reach floor 6 to unlock":"抵达6层解锁",
         "receive double the garbage, cancel double the garbage":"接收双倍的垃圾行，抵消双倍的垃圾行",
-        "VOLATILE GARBAGE":"双刃剑",
+        "VOLATILE GARBAGE":"达摩克利斯之剑",
         "reach floor 5 to unlock":"抵达5层解锁",
         "gravity scales up harshly by floor":"重力随楼层急剧增加",
         "reach floor 4 to unlock":"抵达4层解锁",
@@ -242,82 +241,81 @@
         "CLICK TO INVITE A FRIEND":"点此邀请好友",
         "READY!":"准备！",
         "READY":"准备",
-        "Perform a 3-Combo":"完成一次三连击",
-        "Clear 2 Doubles":"完成两次双消",
-        "Clear a Quad":"完成一次四消",
-        "Clear 6 Lines":"消除六行",
-        "Clear a Double":"完成一次双消",
-        "using an O-piece":"但仅用O块",
-        "Clear 4 Garbage Lines":"消除四行垃圾行",
-        "using an S or Z-Piece":"但仅用S块或者Z块",
-        "Clear a Triple":"完成一次三消",
-        "using an L or J-Piece":"但仅用L或J块",
-        "Perform a T-Spin Mini":"完成一次T-Spin Mini",
-        "Clear a T-Spin Single":"完成一次T-Spin Single",
-        "Clear a T-spin Double":"完成一次T-spin Double",
-        "Clear an S/Z-Spin":"完成一次S-Spin或Z-Spin",
-        "Clear an L/J-Spin":"完成一次L-Spin或J-Spin",
-        "Perform a 5-Combo":"完成一次五连击",
-        "Clear 2 Lines using":"完成两次消除仅用",
-        "horizontal I-pieces":"横I块",
-        "Tank 4 Garbage Lines":"抗下4行垃圾",
-        "CanCel 4 Garbage Lines":"抵消4行垃圾",
-        "Clear 4 Doubles":"完成四次双消",
-        "Place 3 pieces in a row":"在一行中放置3个方块",
-        "without moving or rotating":"但禁止移动或旋转",
-        "Place 14 pieces in a row":"在一行中放置14个方块",
-        "without clearing any lines":"但禁止消除任何一行",
-        "Send 6 Lines":"发动6行攻击",
-        "Place 20 pieces":"放置二十个方块",
-        "Clear 2 Doubles":"完成两次双消",
-        "using S or Z-Pieces":"但仅用S块或Z块",
-        "Clear 2 Triples":"完成两次三消",
-        "using L or J-Pieces":"但仅用L块或J块",
-        "Clear an I-Spin":"完成一次I-Spin",
-        "Clear a Quad in the":"完成一次四消",
-        "upper half of the board":"但仅在板面的上半部分",
-        "Clear a T-Spin Triple":"完成一次T-Spin Triple",
-        "Place 25 pieces":"放置25个方块",
-        "without using Hold":"但禁止使用暂存",
-        "Clear 3 Triples":"完成三次三消",
-        "Reach B2B x4":"达到B2B x4",
-        "Clear a Quad in":"完成一次四消在",
-        "in different Columns":"在不同列",
-        "Use Hold on":"使用暂存",
-        "15 pieces in a row":"在一行中放置15个方块",
-        "Place 10 pieces without":"放置10个方块",
-        "releasing Soft Drop":"但禁止使用软降",
-        "Have part of your stack in":"让你的方块保持在",
-        "the top 3 rows for 3 seconds":"顶部三行内三秒",
-        "Clear 10 Lines without":"消除10行但不",
-        "clearing with T or I-pieces":"使用T块或I块",
-        "Clear an S/Z-Spin Triple":"完成一次S或Z-Spin Triple",
-        "Clear 2 Doubles consecutively":"连续完成两次双消",
-        "using two O-Pieces":"但仅使用O块",
-        "Clear 4 T-Spin Minis":"完成四次T-Spin Mini",
-        "using O-Pieces":"但仅用O块",
-        "Clear Spin-Clears":"完成旋转消除",
-        "with 3 different pieces":"且使用三个不同的方块",
-        "Clear 4 Quads":"完成四次四消",
-        "Place 5 pieces in a row":"在一行放置5个方块",
-        "Send 18 Lines":"发动18行攻击",
-        "Clear an L/J-Spin Triple":"完成一次L或J-Spin Triple",
-        "Clear 2 Quads in a row":"在同一列完成两次四消",
-        "Clear 8 Singles without doing":"完成8次单消但不",
-        "other clears or using Hold":"进行其他消除或使用暂存",
-        "Have no Garbage Lines on":"保持没有垃圾行",
-        "your board for 4 seconds":"4秒在你的板面上",
-        "Rotate 100 times":"旋转一百次",
-        "Don't cancel any":"不要抵消任何",
-        "garbage for 8 seconds":"垃圾行8秒",
-        "Perform a 7-Combo":"完成一次7连击",
-        "Clear an I-Spin Double":"完成一次I-Spin Double",
-        "Clear two S/Z-Spin":"完成两次S或Z-Spin Double",
-        "Doubles Consecutively":"且要连续",
-        "Clear two L/J-Spin":"完成两次L或J-Spin Double",
-        "Perform a Color Clear":"完成一次全消",
-        "Clear 40 Lines":"完成40行消除",
-        "":"",
+        "PERFORM A 3-COMBO":"完成一次三连击",
+        "CLEAR 2 DOUBLES":"完成两次双消",
+        "CLEAR A QUAD":"完成一次四消",
+        "CLEAR 6 LINES":"消除六行",
+        "CLEAR A DOUBLE":"完成一次双消",
+        "USING AN O-PIECE":"但仅用O块",
+        "CLEAR 4 GARBAGE LINES":"消除四行垃圾行",
+        "USING AN S OR Z-PIECE":"但仅用S块或者Z块",
+        "CLEAR A TRIPLE":"完成一次三消",
+        "USING AN L OR J-PIECE":"但仅用L或J块",
+        "PERFORM A T-SPIN MINI":"完成一次T-SPIN MINI",
+        "CLEAR A T-SPIN SINGLE":"完成一次T-SPIN SINGLE",
+        "CLEAR A T-SPIN DOUBLE":"完成一次T-SPIN DOUBLE",
+        "CLEAR AN S/Z-SPIN":"完成一次S-SPIN或Z-SPIN",
+        "CLEAR AN L/J-SPIN":"完成一次L-SPIN或J-SPIN",
+        "PERFORM A 5-COMBO":"完成一次五连击",
+        "CLEAR 2 LINES USING":"完成两次消除仅用",
+        "HORIZONTAL I-PIECES":"横I块",
+        "TANK 4 GARBAGE LINES":"抗下4行垃圾",
+        "CANCEL 4 GARBAGE LINES":"抵消4行垃圾",
+        "CLEAR 4 DOUBLES":"完成四次双消",
+        "PLACE 3 PIECES IN A ROW":"在一行中放置3个方块",
+        "WITHOUT MOVING OR ROTATING":"但禁止移动或旋转",
+        "PLACE 14 PIECES IN A ROW":"在一行中放置14个方块",
+        "WITHOUT CLEARING ANY LINES":"但禁止消除任何一行",
+        "SEND 6 LINES":"发动6行攻击",
+        "PLACE 20 PIECES":"放置二十个方块",
+        "CLEAR 2 DOUBLES":"完成两次双消",
+        "USING S OR Z-PIECES":"但仅用S块或Z块",
+        "CLEAR 2 TRIPLES":"完成两次三消",
+        "USING L OR J-PIECES":"但仅用L块或J块",
+        "CLEAR AN I-SPIN":"完成一次I-SPIN",
+        "CLEAR A QUAD IN THE":"完成一次四消",
+        "UPPER HALF OF THE BOARD":"但仅在板面的上半部分",
+        "CLEAR A T-SPIN TRIPLE":"完成一次T-SPIN TRIPLE",
+        "PLACE 25 PIECES":"放置25个方块",
+        "WITHOUT USING HOLD":"但禁止使用暂存",
+        "CLEAR 3 TRIPLES":"完成三次三消",
+        "REACH B2B X4":"达到B2B X4",
+        "CLEAR A QUAD IN":"完成一次四消在",
+        "IN DIFFERENT COLUMNS":"在不同列",
+        "USE HOLD ON":"使用暂存",
+        "15 PIECES IN A ROW":"在一行中放置15个方块",
+        "PLACE 10 PIECES WITHOUT":"放置10个方块",
+        "RELEASING SOFT DROP":"但禁止使用软降",
+        "HAVE PART OF YOUR STACK IN":"让你的方块保持在",
+        "THE TOP 3 ROWS FOR 3 SECONDS":"顶部三行内三秒",
+        "CLEAR 10 LINES WITHOUT":"消除10行但不",
+        "CLEARING WITH T OR I-PIECES":"使用T块或I块",
+        "CLEAR AN S/Z-SPIN TRIPLE":"完成一次S或Z-SPIN TRIPLE",
+        "CLEAR 2 DOUBLES CONSECUTIVELY":"连续完成两次双消",
+        "USING TWO O-PIECES":"但仅使用O块",
+        "CLEAR 4 T-SPIN MINIS":"完成四次T-SPIN MINI",
+        "USING O-PIECES":"但仅用O块",
+        "CLEAR SPIN-CLEARS":"完成旋转消除",
+        "WITH 3 DIFFERENT PIECES":"且使用三个不同的方块",
+        "CLEAR 4 QUADS":"完成四次四消",
+        "PLACE 5 PIECES IN A ROW":"在一行放置5个方块",
+        "SEND 18 LINES":"发动18行攻击",
+        "CLEAR AN L/J-SPIN TRIPLE":"完成一次L或J-SPIN TRIPLE",
+        "CLEAR 2 QUADS IN A ROW":"在同一列完成两次四消",
+        "CLEAR 8 SINGLES WITHOUT DOING":"完成8次单消但不",
+        "OTHER CLEARS OR USING HOLD":"进行其他消除或使用暂存",
+        "HAVE NO GARBAGE LINES ON":"保持没有垃圾行",
+        "YOUR BOARD FOR 4 SECONDS":"4秒在你的板面上",
+        "ROTATE 100 TIMES":"旋转一百次",
+        "DON'T CANCEL ANY":"不要抵消任何",
+        "GARBAGE FOR 8 SECONDS":"垃圾行8秒",
+        "PERFORM A 7-COMBO":"完成一次7连击",
+        "CLEAR AN I-SPIN DOUBLE":"完成一次I-SPIN DOUBLE",
+        "CLEAR TWO S/Z-SPIN":"完成两次S或Z-SPIN DOUBLE",
+        "DOUBLES CONSECUTIVELY":"且要连续",
+        "CLEAR TWO L/J-SPIN":"完成两次L或J-SPIN DOUBLE",
+        "PERFORM A COLOR CLEAR":"完成一次色彩全消",
+        "CLEAR 40 LINES":"完成40行消除",
         "":"",
         "":"",
         "":"",
@@ -665,19 +663,6 @@
         "rounds won with a lower PPS than the opponent": "在每秒方块数（PPS）低于对手的情况下获胜的回合数",
         "Pour intention into each piece, and even a single bag can shake the world.": "慢工出细活。",
         "OPENER MAIN": "开局之王",
-        "Sprinter": "40行爱好者",
-        "All The Single Lines": "单消艺术",
-        "1-8 Stacking": "一八堆叠王",
-        "Mr. Boardwide": "板面天王",
-        "Blitzer": "Blitz爱好者",
-        "Wabi-Sabi": "侘寂",
-        "Secret Grade": "隐藏段位",
-        "Contender": "挑战者",
-        "Reverse Sweep Specialist": "逆转大师",
-        "The Spike of all Time": "超究极必杀爆发",
-        "Speed Player": "速度爱好者",
-        "Plonk": "太极爱好者",
-        "Opener Main": "开局之王",
         "rounds won within 20 seconds": "在20秒内获胜的回合数",
         "Blink and it's over.": "转瞬即逝。",
         "Spin to win.": "转出胜利。",
@@ -707,31 +692,31 @@
         "highest floor discovered while using all mods at the same time (\"DUO\" not allowed)": "在启用所有模组的情况下抵达的最高层数（不包括双人模式）",
         "The worst of all worlds.": "这充满恶意的世界。",
         "DEADLOCK": "僵局",
-        "highest floor discovered while using the \"NO HOLD\", \"DOUBLE HOLE GARBAGE\" and \"MESSIER GARBAGE\" mods": "在启用“禁止暂存”、“双洞垃圾”和“双刃剑”模组的情况下抵达的最高层数",
+        "highest floor discovered while using the \"NO HOLD\", \"DOUBLE HOLE GARBAGE\" and \"MESSIER GARBAGE\" mods": "在启用“禁止暂存”、“空洞诅咒”和“达摩克利斯之剑”模组的情况下抵达的最高层数",
         "From here on out, all challengers meet the same fate. There is no escape.": "从现在开始，所有挑战者都将面临同样无法逃脱的命运。",
         "THE GRANDMASTER": "方块大师",
         "highest floor discovered while using the \"GRAVITY\" and \"INVISIBLE\" mods": "在启用“重力”和“隐形”模组的情况下抵达的最高层数",
         "When the world descends into chaos, the grandmaster remains at peace.": "纵使世界混乱，大师亦巍然不动。",
         "THE ESCAPE ARTIST":"金蝉脱壳",
         "An impossible situation! A daring illusionist! Will they make it out alive?":"绝对不可能逃脱的处境加上一个大胆的魔术师！他能创造奇迹吗？",
-        "highest floor discovered while using the \"DOUBLE HOLE GARBAGE\", \"MESSIER GARBAGE\" and \"ALL-SPIN\" mods":"在启用“双洞垃圾”，“垃圾之乱”和“ALL-SPIN”模组的情况下抵达的最高层数",
+        "highest floor discovered while using the \"DOUBLE HOLE GARBAGE\", \"MESSIER GARBAGE\" and \"ALL-SPIN\" mods":"在启用“空洞诅咒”，“垃圾之乱”和“ALL-SPIN”模组的情况下抵达的最高层数",
         "EMPEROR'S DECADENCE":"皇帝的懦弱",
-        "highest floor discovered while using the \"EXPERT MODE\", \"DOUBLE HOLE GARBAGE\" and \"NO HOLD\" mods":"在启用“专家模式”，“双洞垃圾”和“禁止暂存”模组的情况下抵达的最高层数",
+        "highest floor discovered while using the \"EXPERT MODE\", \"DOUBLE HOLE GARBAGE\" and \"NO HOLD\" mods":"在启用“专家模式”，“空洞诅咒”和“禁止暂存”模组的情况下抵达的最高层数",
         "The Devil's lesson in humility.":"吃一堑，长一智。",
         "DIVINE MASTERY":"天纵奇才",
-        "highest floor discovered while using the \"EXPERT MODE\", \"DOUBLE HOLE GARBAGE\", \"VOLATILE GARBAGE\" and \"MESSIER GARBAGE\" mods":"在启用“专家模式”，“双洞垃圾”，“双刃剑”和“垃圾之乱”模组的情况下抵达的最高层数",
+        "highest floor discovered while using the \"EXPERT MODE\", \"DOUBLE HOLE GARBAGE\", \"VOLATILE GARBAGE\" and \"MESSIER GARBAGE\" mods":"在启用“专家模式”，“空洞诅咒”，“达摩克利斯之剑”和“垃圾之乱”模组的情况下抵达的最高层数",
         "The universe is yours.":"天下任你闯。",
         "TEMPERANCE":"节制",
         "highest floor discovered with the \"NO HOLD\" mod":"在启用“禁止暂存”模组的情况下抵达的最高层数",
         "Use each piece as they come, and embrace the natural flow of stacking.":"随块而动，随意而堆，块法自然。",
         "WHEEL OF FORTUNE":"命运之轮",
-        "highest floor discovered with the \"MESSIER GARBAGE\" mod":"在启用“双刃剑”模组的情况下抵达的最高层数",
+        "highest floor discovered with the \"MESSIER GARBAGE\" mod":"在启用“达摩克利斯之剑”模组的情况下抵达的最高层数",
         "The only constant in life is change.":"计划赶不上变化。",
         "A MODERN CLASSIC":"现代经典",
         "highest floor discovered while using the \"NO HOLD\" and \"GRAVITY\" mods":"在启用“禁止暂存”和“重力”模组的情况下抵达的最高层数",
         "Times were different back then...":"大人，时代变回去了...",
         "THE DEVIL":"恶魔",
-        "highest floor discovered with the \"DOUBLE HOLE GARBAGE\" mod":"在启用“双洞垃圾”模组的情况下抵达的最高层数",
+        "highest floor discovered with the \"DOUBLE HOLE GARBAGE\" mod":"在启用“空洞诅咒”模组的情况下抵达的最高层数",
         "Redefine your limits or succumb to his chains.":"突破极限或屈服于他的枷锁。",
         "THE TOWER":"高塔",
         "highest floor discovered with the \"GRAVITY\" mod":"在启用“重力”模组的情况下抵达的最高层数",
@@ -745,29 +730,8 @@
         "TRAINED PROFESSIONALS":"专业团队",
         "highest floor discovered in a DUO while both players are using the \"EXPERT MODE\" mod":"在启用“专家模式”，“双人模式”模组的情况下抵达的最高层数",
         "Partners in expertise.":"处理方块我们在行。",
-        "Zenith Explorer": "天顶探索者",
-        "The Lovers": "恋人",
-        "Tower Climber": "攀塔爱好者",
-        "The Emperor": "皇帝",
-        "Whatever It Takes": "不计代价",
-        "The Responsible One": "责任神",
-        "Strength": "力量",
-        "Swamp Water": "泥泞不堪",
-        "Deadlock": "僵局",
-        "The Grandmaster": "方块大师",
-        "The Escape Artist":"金蝉脱壳",
-        "Emperor's Decadence":"皇帝的懦弱",
-        "Divine Mastery":"天纵奇才",
-        "Temperance":"节制",
-        "Wheel of Fortune":"命运之轮",
-        "A Modern Classic":"现代经典",
-        "The Devil":"恶魔",
-        "The Tower":"高塔",
-        "The Hermit":"隐士",
-        "The Magician":"魔术师",
-        "Trained Professionals":"专业团队",
-        "": "",
-        "": "",
+        "select a slot to feature an achievement on your profile": "选择一个槽位来在你的个人资料上展示一个成就。",
+        "select an achievement to feature it, or select the slot again to cancel": "选择一个成就来展示，或者再次选择该槽位以取消展示。",
         "": "",
         "": "",
         "": "",
@@ -1391,7 +1355,6 @@
         "":"",
         "":"",
         "":"",
-        "":"",
         //错误相关文本
         "DEVELOPMENT BUILD": "开发版本",
         "if you have the feeling you're not supposed to be here, get out": "如果你觉得你不应该在这里，那就出去吧",
@@ -1713,9 +1676,7 @@
         "This user has a low average VS compared to other players (.*)":"该玩家的VS低于平均水平 $1",
         "This user has a low average APM compared to other players (.*)":"该玩家的APM低于平均水平 $1",
         "This user has a low average PPS compared to other players (.*)":"该玩家的PPS低于平均水平 $1",
-        "Top (.*)":"头部 $1",
         "Winrate (.*)":"胜率 $1",
-        "Bottom (.*)":"底部 $1",
         "SPECTATE (.*)":"旁观$1",
         "":"",
         "":"",
@@ -1746,83 +1707,99 @@
         ".replayid::before": "回放id:",
     };
 
-// 检查给定的节点及其祖族元素是否包含应该排除的元素
-function shouldExclude(node) {
-    let currentNode = node;
-    while (currentNode) {
-        if (
-            currentNode.nodeType === Node.ELEMENT_NODE &&
-            (currentNode.getAttribute("data-uid") === "5f4ca7f5fdcc602e78a65bba" ||
-                ["breadcrumbs", "dirtyflag_gfx", "dirtyflag_net", "dirtyflag_state", "dirtyflag_client", "dirtyflag_gl"].includes(currentNode.getAttribute("id")) ||
-                / (user|leagueplayer_name|primary|uniflex-item) /.test(" " + [...currentNode.classList].join(" ") + " ") ||
-                currentNode === document.querySelector('.tetra_modal h2') ||
-                currentNode.getAttribute("data-username")
-            )
-        ) {
-            return true;
-        }
-        currentNode = currentNode.parentNode;
-    }
-    return false;
-}
-
-
-
-// 替换页面文本
-function replaceText(node) {
-    if (node.nodeType === Node.ELEMENT_NODE) {
-        let text = node.innerHTML;
-        const regex = /<.*?>/g;
-        let tags = text.match(regex);
-        text = text.replace(regex, "<>").replace(/&nbsp;/g, " ");
-        const nodeNameList = ["DIV", "H1", "H2", "H3", "P", "A", "SPAN"];
-        if (nodeNameList.includes(node.nodeName) && textMap.hasOwnProperty(text) && !shouldExclude(node)) {
-            text = textMap[text];
-            node.innerHTML = text.replace(/<>+/g, () => tags.shift() ?? "<>");
-        }
-        // 替换占位符
-        if (node.hasAttribute?.("placeholder") && placeholderMap.hasOwnProperty(node.getAttribute("placeholder"))) {
-            node.setAttribute("placeholder", placeholderMap[node.getAttribute("placeholder")]);
-        }
-        // 替换伪元素文本
-        const styleSheet = document.styleSheets[0];
-        for (let [key, value] of Object.entries(pseudoElementMap)) {
-            if (node.matches(key.split("::")[0])) {
-                styleSheet.addRule(key, `content: "${value}";`);
+    // 将键转换为小写，保证无论大小写文本都能进行替换
+    const toLowerCaseKeys = (obj) => {
+        const result = {};
+        for (let key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                result[key.toLowerCase()] = obj[key];
             }
         }
-    } else if (node.nodeType === Node.TEXT_NODE) {
-        let text = node.nodeValue.trim();
-        if (textMap.hasOwnProperty(text) && !shouldExclude(node)) {
-            node.nodeValue = textMap[text];
-        } else {
-            for (let [key, value] of Object.entries(specialTextMap)) {
-                const regex = new RegExp(key, "g");
-                const replacedText = text.replace(regex, value);
-                if (text !== replacedText) {
-                    node.nodeValue = replacedText;
-                    text = replacedText;
+        return result;
+    };
+
+    const lowerTextMap = toLowerCaseKeys(textMap);
+    const lowerTooltipMap = toLowerCaseKeys(tooltipMap);
+    const lowerPlaceholderMap = toLowerCaseKeys(placeholderMap);
+    const lowerPseudoElementMap = toLowerCaseKeys(pseudoElementMap);
+
+    // 检查给定的节点及其祖族元素是否包含应该排除的元素
+    function shouldExclude(node) {
+        let currentNode = node;
+        while (currentNode) {
+            if (
+                currentNode.nodeType === Node.ELEMENT_NODE &&
+                (currentNode.getAttribute("data-uid") === "5f4ca7f5fdcc602e78a65bba" ||
+                    ["breadcrumbs", "dirtyflag_gfx", "dirtyflag_net", "dirtyflag_state", "dirtyflag_client", "dirtyflag_gl"].includes(currentNode.getAttribute("id")) ||
+                    / (user|leagueplayer_name|primary|uniflex-item) /.test(" " + [...currentNode.classList].join(" ") + " ") ||
+                    /chat_message\s+ig_chat_message\s+supporterchat\s+supporterchat_t[1-4]/.test(" " + [...currentNode.classList].join(" ") + " ") ||
+                    currentNode.classList.contains("user-tooltip") ||
+                    currentNode === document.querySelector('.tetra_modal h2') ||
+                    currentNode.getAttribute("data-username")
+                )
+            ) {
+                return true;
+            }
+            currentNode = currentNode.parentNode;
+        }
+        return false;
+    }
+
+    // 替换页面文本
+    function replaceText(node) {
+        if (node.nodeType === Node.ELEMENT_NODE) {
+            let text = node.innerHTML;
+            const regex = /<.*?>/g;
+            let tags = text.match(regex);
+            text = text.replace(regex, "<>").replace(/&nbsp;/g, " ");
+            const nodeNameList = ["DIV", "H1", "H2", "H3", "P", "A", "SPAN"];
+            if (nodeNameList.includes(node.nodeName) && lowerTextMap.hasOwnProperty(text.toLowerCase()) && !shouldExclude(node)) {
+                text = lowerTextMap[text.toLowerCase()];
+                node.innerHTML = text.replace(/<>+/g, () => tags.shift() ?? "<>");
+            }
+            // 替换占位符
+            if (node.hasAttribute?.("placeholder") && lowerPlaceholderMap.hasOwnProperty(node.getAttribute("placeholder").toLowerCase())) {
+                node.setAttribute("placeholder", lowerPlaceholderMap[node.getAttribute("placeholder").toLowerCase()]);
+            }
+            // 替换伪元素文本
+            const styleSheet = document.styleSheets[0];
+            for (let [key, value] of Object.entries(lowerPseudoElementMap)) {
+                if (node.matches(key.split("::")[0])) {
+                    styleSheet.addRule(key, `content: "${value}";`);
                 }
             }
+        } else if (node.nodeType === Node.TEXT_NODE) {
+            let text = node.nodeValue.trim();
+            if (lowerTextMap.hasOwnProperty(text.toLowerCase()) && !shouldExclude(node)) {
+                node.nodeValue = lowerTextMap[text.toLowerCase()];
+            } else {
+                for (let [key, value] of Object.entries(specialTextMap)) {
+                    const regex = new RegExp(key, "gi");
+                    const replacedText = text.replace(regex, value);
+                    if (text !== replacedText) {
+                        node.nodeValue = replacedText;
+                        text = replacedText;
+                    }
+                }
+            }
+            return;
         }
-        return;
+        for (let i of node.childNodes) {
+            replaceText(i);
+        }
     }
-    for (let i of node.childNodes) {
-        replaceText(i);
-    }
-}
 
     // 替换悬停文本
     function replaceTooltips(event) {
         const tooltip = event.target;
-        const title = tooltip.getAttribute("title");
+        let title = tooltip.getAttribute("title");
         if (title) {
-            if (tooltipMap.hasOwnProperty(title)) {
-                tooltip.setAttribute("title", tooltipMap[title]);
+            if (lowerTooltipMap.hasOwnProperty(title.toLowerCase())) {
+                tooltip.setAttribute("title", lowerTooltipMap[title.toLowerCase()]);
                 tooltip.removeAttribute("data-original-title");
             } else {
                 for (let [key, value] of Object.entries(specialTextMap)) {
-                    const regex = new RegExp(key, "g");
+                    const regex = new RegExp(key, "gi");
                     const replacedTitle = title.replace(regex, value);
                     if (title !== replacedTitle) {
                         tooltip.setAttribute("title", replacedTitle);
