@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      1.3.2
-// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120以及方块群友。1.3.2更新：重构替换逻辑，补充BETA1.0新增内容.大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
+// @version      1.3.3
+// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120以及方块群友。1.3.3更新：修正错误文本.大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
 // @downloadURL https://update.greasyfork.org/scripts/466016/TETRIO%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91.user.js
@@ -220,13 +220,13 @@
         "reach floor 6 to unlock":"抵达6层解锁",
         "receive double the garbage, cancel double the garbage":"接收双倍的垃圾行，抵消双倍的垃圾行",
         "VOLATILE GARBAGE":"达摩克利斯之剑",
+        "MESSIER GARBAGE":"垃圾之乱",
         "reach floor 5 to unlock":"抵达5层解锁",
         "gravity scales up harshly by floor":"重力随楼层急剧增加",
         "reach floor 4 to unlock":"抵达4层解锁",
         "NO HOLD":"禁止暂存",
         "hold piece is disabled":"暂存方块被禁用",
         "reach floor 2 to unlock":"抵达2层解锁",
-        "MESSIER GARBAGE":"垃圾之乱",
         "garbage is significantly messier":"垃圾行变得更加混乱",
         "reach floor 3 to unlock":"抵达3层解锁",
         "non-garbage minos are only visible once every five seconds":"非垃圾行方块每五秒显形一次",
@@ -686,13 +686,22 @@
         "highest amount of revivals performed in a single DUO run": "在一局双人模式中完成的最多复活次数",
         "Could you please stop dying?": "你能不能少死点？",
         "STRENGTH": "力量",
-        "highest floor discovered with the \"VOLATILE GARBAGE\" mod": "在启用“垃圾之乱”模组下抵达的最高层数",
+        "highest floor discovered with the \"VOLATILE GARBAGE\" mod": "在启用“达摩克利斯之剑”模组下抵达的最高层数",
         "Match great obstacles with greater determination.": "以强大的决心应对更大的挑战。",
         "SWAMP WATER": "泥泞不堪",
         "highest floor discovered while using all mods at the same time (\"DUO\" not allowed)": "在启用所有模组的情况下抵达的最高层数（不包括双人模式）",
         "The worst of all worlds.": "这充满恶意的世界。",
         "DEADLOCK": "僵局",
-        "highest floor discovered while using the \"NO HOLD\", \"DOUBLE HOLE GARBAGE\" and \"MESSIER GARBAGE\" mods": "在启用“禁止暂存”、“空洞诅咒”和“达摩克利斯之剑”模组的情况下抵达的最高层数",
+        "\"DEADLOCK\"":"“僵局”",
+        "\"SWAMP WATER\"":"“泥泞不堪”",
+        "\"THE GRANDMASTER\"":"“方块大师”",
+        "\"THE ESCAPE ARTIST\"":"“金蝉脱壳”",
+        "\"EMPEROR'S DECADENCE\"":"“皇帝的懦弱”",
+        "\"DIVINE MASTERY\"":"“天纵奇才”",
+        "\"A MODERN CLASSIC\"":"“现代经典”",
+        "\"TRAINED PROFESSIONALS\"":"“专业团队”",
+        "EXPERT DUO":"专家级双人模式",
+        "highest floor discovered while using the \"NO HOLD\", \"DOUBLE HOLE GARBAGE\" and \"MESSIER GARBAGE\" mods": "在启用“禁止暂存”、“空洞诅咒”和“垃圾之乱”模组的情况下抵达的最高层数",
         "From here on out, all challengers meet the same fate. There is no escape.": "从现在开始，所有挑战者都将面临同样无法逃脱的命运。",
         "THE GRANDMASTER": "方块大师",
         "highest floor discovered while using the \"GRAVITY\" and \"INVISIBLE\" mods": "在启用“重力”和“隐形”模组的情况下抵达的最高层数",
@@ -710,7 +719,7 @@
         "highest floor discovered with the \"NO HOLD\" mod":"在启用“禁止暂存”模组的情况下抵达的最高层数",
         "Use each piece as they come, and embrace the natural flow of stacking.":"随块而动，随意而堆，块法自然。",
         "WHEEL OF FORTUNE":"命运之轮",
-        "highest floor discovered with the \"MESSIER GARBAGE\" mod":"在启用“达摩克利斯之剑”模组的情况下抵达的最高层数",
+        "highest floor discovered with the \"MESSIER GARBAGE\" mod":"在启用“垃圾之乱”模组的情况下抵达的最高层数",
         "The only constant in life is change.":"计划赶不上变化。",
         "A MODERN CLASSIC":"现代经典",
         "highest floor discovered while using the \"NO HOLD\" and \"GRAVITY\" mods":"在启用“禁止暂存”和“重力”模组的情况下抵达的最高层数",
