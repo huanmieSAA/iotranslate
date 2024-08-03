@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      1.3.4
-// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120以及方块群友。1.3.4更新：补充新增文本.大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
+// @version      1.3.5
+// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120以及方块群友。1.3.5更新：补充新增文本.大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
 // @downloadURL https://update.greasyfork.org/scripts/466016/TETRIO%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91.user.js
@@ -641,7 +641,7 @@
         "Clear 40 LINES using only All Clears": "仅限使用10个全消完成40行挑战",
         "40 lines, 0 wasted.": "我从不浪费方块。",
         "BLITZER": "BLITZ爱好者",
-        "points earned in completed BLITZ games": "完成BLITZ挑战获得的最高分数",
+        "points earned in completed BLITZ games": "完成BLITZ挑战获得的分数总和",
         "Two minutes of perfection.": "完美的两分钟。",
         "WABI-SABI": "侘寂",
         "highest BLITZ score obtained without performing any All Clears": "不使用任何全消的情况下获得的最高BLITZ分数",
@@ -680,7 +680,7 @@
         "highest floor discovered with the \"EXPERT MODE\" mod": "在启用专家模式下抵达的最高层数",
         "A display of power for those willing to bear its burden.": "欲戴王冠，必承其重。",
         "WHATEVER IT TAKES": "不计代价",
-        "players KO'd": "击败的玩家数",
+        "players KO'd in Quick Play": "在快速游戏中击败的玩家数",
         "Don't look back.": "一将功成万骨枯。",
         "THE RESPONSIBLE ONE": "责任神",
         "highest amount of revivals performed in a single DUO run": "在一局双人模式中完成的最多复活次数",
@@ -741,24 +741,24 @@
         "Partners in expertise.":"处理方块我们在行。",
         "select a slot to feature an achievement on your profile": "选择一个槽位来在你的个人资料上展示一个成就。",
         "select an achievement to feature it, or select the slot again to cancel": "选择一个成就来展示，或者再次选择该槽位以取消展示。",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
+        "DETAIL ORIENTED": "精益求精",
+        "Clear 40 LINES using as little inputs as possible": "使用尽可能少的输入完成40行挑战",
+        "Theoretically efficient can quickly become the gloriously impractical.": "“我有一个绝妙的想法，但块速太快，没做完！”",
+        "AGAINST ALL ODDS": "背水一战",
+        "games won against players with higher TR": "战胜TR比你高的对手的场次",
+        "Embrace the unexpected.": "我就是你的意外",
+        "SUPERCHARGED": "潮涌增压",
+        "highest Back-to-Back chain reached in Quick Play": "在快速游戏中达到的最高Back-to-Back连锁数",
+        "\"With this divine power, we'll be unstoppable!\" -Mathis, Core Engineer": "“有了这种神力，我们将势不可挡”——马蒂斯，核心工程师",
+        "VIP LIST": "贵宾名单",
+        "End the week on weekly leaderboards with a high rank. (+10pts to Top 3, +5pts to Top 10, +3pts to Top 25, +1pts to Top 100)": "以尽可能高的排名结算每周排行榜（前三名+10点，前十名+5点，前25名+3点，前100名加1点）",
+        "Unparalelled luxury for a select few.": "您注定与众不同",
+        "THE STARVING ARTIST": "绝处逢生",
+        "highest floor discovered while using the \"No Hold\" and \"All-Spin\" mods": "在启用“禁止暂存”和“ALL-Spin”模组的情况下抵达的最高层数",
+        "Creativity is cultivated through limitation.": "创造力会在逆境中成长",
+        "GUARDIAN ANGEL": "守护天使",
+        "highest altitude to perform a successful revive at": "完成救援的最高米数",
+        "An angel's intervention.": "天使下凡",
         "": "",
         "": "",
         "": "",
