@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      1.3.5
-// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120以及方块群友。1.3.5更新：补充新增文本.大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
+// @version      1.3.6
+// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120以及方块群友。1.3.6更新：补充新增文本.大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
 // @downloadURL https://update.greasyfork.org/scripts/466016/TETRIO%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91.user.js
@@ -649,7 +649,7 @@
         "SECRET GRADE": "隐藏段位",
         "A (poorly guarded) secret.": "一个（众所周知的）秘密。",
         "CONTENDER": "挑战者",
-        "rounds played": "Tetra联赛对局次数",
+        "rounds played": "Tetra联赛游玩的总回合数",
         "In it to win it.": "向胜利进发。",
         "REVERSE SWEEP SPECIALIST": "逆转大师",
         "rounds won with the opponent at match point": "在对手处于赛点时赢得的回合数",
@@ -742,8 +742,8 @@
         "select a slot to feature an achievement on your profile": "选择一个槽位来在你的个人资料上展示一个成就。",
         "select an achievement to feature it, or select the slot again to cancel": "选择一个成就来展示，或者再次选择该槽位以取消展示。",
         "DETAIL ORIENTED": "精益求精",
-        "Clear 40 LINES using as little inputs as possible": "使用尽可能少的输入完成40行挑战",
-        "Theoretically efficient can quickly become the gloriously impractical.": "“我有一个绝妙的想法，但块速太快，没做完！”",
+        "Clear 40 LINES using as few inputs as possible": "使用尽可能少的输入完成40行挑战",
+        "Theoretically efficient can quickly become gloriously impractical.": "“我有一个绝妙的想法，但块速太快，没做完！”",
         "AGAINST ALL ODDS": "背水一战",
         "games won against players with higher TR": "战胜TR比你高的对手的场次",
         "Embrace the unexpected.": "我就是你的意外",
