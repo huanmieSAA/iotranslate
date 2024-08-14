@@ -1696,7 +1696,7 @@
         "This user has a low average APM compared to other players (.*)":"该玩家的APM低于平均水平 $1",
         "This user has a low average PPS compared to other players (.*)":"该玩家的PPS低于平均水平 $1",
         "SEASON ([0-9]+) ENDS":"第$1赛季将结束于",
-        "SEASON ([0-9]+) START":"第$1赛季将开始于",
+        "SEASON ([0-9]+) STARTS":"第$1赛季将开始于",
         "SEASON ([0-9]+)":"第$1赛季",
         "Winrate (.*)":"胜率 $1",
         "SPECTATE (.*)":"旁观$1",
