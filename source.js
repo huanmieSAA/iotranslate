@@ -2,7 +2,7 @@
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
 // @version      1.3.8
-// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120以及方块群友。1.3.8更新：修正文本.大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
+// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120以及方块群友。1.3.9更新：修正文本.大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
 // @downloadURL https://update.greasyfork.org/scripts/466016/TETRIO%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91.user.js
@@ -541,6 +541,9 @@
         "view other players and their achievements!":"查看其他玩家和他们的成就！",
         "view your achievement progress!":"查看你的成就进度！",
         "expert quick play":"专家模式快速游戏",
+        "career best":"生涯最佳",
+        "Career best: ":"生涯最佳：",
+        "ago • Career best:":"前 • 生涯最佳：",
         "leaderboards, replays and more": "排行榜、回放等",
         "welcome to TETRA CHANNEL!": "欢迎来到TETRA频道！",
         "VISIT THE TETRA CHANNEL SITE": "访问TETRA频道网站",
