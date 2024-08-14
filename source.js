@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      1.3.7
-// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120以及方块群友。1.3.7更新：补充新增文本.大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
+// @version      1.3.8
+// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120以及方块群友。1.3.8更新：修正文本.大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
 // @downloadURL https://update.greasyfork.org/scripts/466016/TETRIO%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91.user.js
@@ -189,7 +189,7 @@
         "PLAYING": "游玩",
         "click to switch to SPECTATORS": "点击切换到旁观模式",
         "click to copy url": "点击这里复制链接",
-        "EDIT": "退出",
+        "EDIT": "编辑",
         "you just joined QUICK PLAY - you will play in the next game in this lobby. please wait for the current game to finish. feel free to spectate or play ZEN while waiting!": "您加入了快速游戏 - 请等待结束然后加入下一局。在等待时，您可以选择旁观或游玩单人的禅意模式！",
         "you can change these and many other settings in CONFIG. have fun!": "您可以在设置中更改这些和许多其他设置。祝您玩得愉快！",
         "GAME IN PROGRESS, GOOD LUCK!": "游戏正在进行中，祝你好运!",
