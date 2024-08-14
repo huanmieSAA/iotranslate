@@ -159,7 +159,7 @@
         "play more games to receive a rank": "玩更多的游戏以获得段位",
         "Off-season":"淡季",
         "OFF-SEASON":"淡季",
-        "UNRANKED":""无排名",
+        "UNRANKED":"无排名",
         //快速游戏相关文本
         "QUICK PLAY": "快速游戏",
         "jump into a currently ongoing match": "加入正在进行的比赛",
