@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      1.4.0
-// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120，B4093以及方块群友。1.4.0更新：修正文本.大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
+// @version      1.4.1
+// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120，B4093以及方块群友。1.4.1更新：补充文本.大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
 // @downloadURL https://update.greasyfork.org/scripts/466016/TETRIO%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91.user.js
@@ -153,6 +153,7 @@
         "IN QUEUE -": "排队中 - ",
         "IN GAME": "游戏中",
         "ENTER MATCHMAKING": "进入匹配",
+        "CANCEL MATCHMAKING": "取消匹配",
         "LEAVING EARLY IS PUNISHED": "中途退出会受到惩罚",
         "HOW DOES IT WORK?": "这个模式是怎么运作的？",
         "enter matchmaking and you will be matched up with a player of similar skill in a game of 1v1 VERSUS.": "加入匹配队伍，匹配成功后，您将和一个水平相似的玩家进行一场1对1的对战。",
@@ -386,6 +387,7 @@
         "auto start": "自动开始",
         "allow anonymous users to join": "允许匿名用户加入",
         "allow unranked users to play": "允许未定段用户进行游戏",
+        "allow users who are in matchmaking to join": "允许正在排队进行tetra联赛的用户进行游戏",
         "RANK LIMIT": "段位限制",
         "limit by top rank": "按最高段位限制",
         "music": "音乐",
@@ -482,6 +484,9 @@
         "garbage blocking": "垃圾行阻挡",
         "none": "无",
         "enable back-to-back chaining": "启用back-to-back连锁增伤",
+        "enable back-to-back charging": "启用back-to-back蓄力",
+        "rounding mode": "小数处理方式",
+        "DOWN":"向下取整",
         "allow manual targeting": "允许手动选定目标",
         "enable clutch clears": "启用clutch消除",
         "disable lockout": "禁用锁定",
@@ -494,6 +499,9 @@
         "incoming garbage can be reduced only once per next immediate piece": "单个方块只能阻挡并抵消一次垃圾行",
         "incoming garbage cannot be blocked": "垃圾行无法阻挡或抵消",
         "enable all clears": "启用全消攻击奖励",
+        "all clear garbage": "全消伤害",
+        "all clear back-to-back": "全消back-to-back",
+        "opener phase":"开启阶段",
         "Seed to use, if": "在此输入种子",
         "is a free-to-win familiar yet fast-paced online stacker in the same genre as tetris, and played by millions across the globe.": " 是一款免费、易上手且快节奏的在线堆叠游戏，玩法与俄罗斯方块类似，在全球范围内拥有数百万玩家。",
         "you just created an online game - you can start the game once two players are in the room (and not spectating)!": "您刚刚创建了一个在线游戏房间 - 只要有两名玩家在房间里（旁观除外），您就可以开始游戏！",
@@ -524,9 +532,9 @@
         "garbage rolls in one by one": "垃圾行滚滚而来",
         "DELAYED PIECE SPAWN": "延迟生成",
         "garbage rolls in one by one but delays your next piece": "垃圾行逐个输入，但是每段垃圾行延迟生成",
-        "": "",
-        "": "",
-        "": "",
+        "You are not the host of this room": "你不是房主",
+        "HOST": "房主",
+        "ANON": "匿名",
         "": "",
         "": "",
         "": "",
@@ -562,7 +570,7 @@
         "view your achievement progress!":"查看你的成就进度！",
         "expert quick play":"专家模式快速游戏",
         "career best":"生涯最佳",
-        "Career best: ":"生涯最佳：",
+        "Career best:":"生涯最佳：",
         "ago • Career best:":"前 • 生涯最佳：",
         "leaderboards, replays and more": "排行榜、回放等",
         "welcome to TETRA CHANNEL!": "欢迎来到TETRA频道！",
@@ -1684,6 +1692,7 @@
         "(.*) FROM NOW":"$1后",
         "(.*) ago": "$1前",
         "JOINED (.*) AGO -": "$1前加入游戏 - ",
+        "JOINED (.*) AGO": "$1前加入游戏",
         "loading fonts(.*)": "正在加载字体$1",
         "loading textures(.*)": "正在加载材质$1",
         "loading (.*)": "正在加载$1",
@@ -1722,6 +1731,9 @@
         "(.+) - CALM":"$1 - 平静",
         "(.+) - BATTLE":"$1 - 战斗",
         "([0-9]+) GAMES WON":"$1场获胜",
+        "([0-9]+) TARGETING YOU":"$1人瞄准你",
+        "ago • was #([0-9,]+), no score set this week":"前 • 曾经是#$1，本周无成绩",
+        "([0-9:]+) • CLICK TO CANCEL":"$1 • 点击取消",
     };
 
     // 占位符
@@ -1741,6 +1753,7 @@
         "six digits": "六位数",
         "Ǖ find someone…": "Ǖ 搜索用户名……",
         "message...": "发消息……",
+        "enter a username to view their profile...":"输入用户名以查看TA的页面",
     };
 
     // 伪元素（::before, ::after）文本
