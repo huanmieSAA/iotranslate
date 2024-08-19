@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      1.4.1
-// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120，B4093以及方块群友。1.4.1更新：补充文本.大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
+// @version      1.4.2
+// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120，B4093以及方块群友。1.4.2更新：补充文本.大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
 // @downloadURL https://update.greasyfork.org/scripts/466016/TETRIO%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91.user.js
@@ -179,6 +179,9 @@
         "Off-season":"淡季",
         "OFF-SEASON":"淡季",
         "UNRANKED":"无排名",
+        "MATCH SUSPENDED": "对局暂停",
+        "Your opponent has disconnected, but may still return.": "您的对手已断开连接，但仍有可能重连。",
+        "Your will gain points as you wait. If your opponent does not return,you win by default.": "您将会获得一分等待奖励。如果对手没有重连，则您直接获胜。",
         //快速游戏相关文本
         "QUICK PLAY": "快速游戏",
         "jump into a currently ongoing match": "加入正在进行的比赛",
@@ -379,6 +382,7 @@
         "PRIVATE ROOM": "私人房间",
         "create a private room for you and friends": "为你和朋友创建一个私人房间",
         "Welcome to chat! Please remember to be civil to your opponents.": "欢迎来到聊天室! 请文明交流。",
+        "NEW":"新",
         "ROOM": "房间",
         "MATCH": "比赛",
         "GAME": "对局",
@@ -487,6 +491,9 @@
         "enable back-to-back charging": "启用back-to-back蓄力",
         "rounding mode": "小数处理方式",
         "DOWN":"向下取整",
+        "all values are rounded down":"所有值均向下取整",
+        "RNG":"按小数部分随机",
+        "weighted randomness is used to smooth values (e.g. 1.23 has a 23% chance to become 2)":"加权性随机，用于平滑值（例如：1.23有23%的机会变成2）",
         "allow manual targeting": "允许手动选定目标",
         "enable clutch clears": "启用clutch消除",
         "disable lockout": "禁用锁定",
@@ -588,6 +595,10 @@
         "RECENT": "最近",
         "VICTORY": "获胜",
         "DEFEAT": "落败",
+        "MATCH SUSPENDED": "比赛暂停",
+        "Your opponent has disconnected, but may still return.": "你的对手掉线了，但可能会卷土重来。",
+        "You will gain points as you wait. lf your opponent does not return, you win by default.":"你等待的时候会加分。如果你的对手还没回来，将会默认为你获胜。",
+        "VICTORY IN":"获胜中",
         "BY LEAGUE RATING": "按联赛段位排名",
         "BY XP": "按经验值排名",
         "you forfeited": "你弃权了",
@@ -634,6 +645,10 @@
         "ONLINE GAMES WON": "游戏获胜场次",
         "EXPAND": "展开",
         "GLOBAL LEADERBOARDS FOR 40 LINES, BLITZ AND QUICK PLAY": "关于40行竞速，BLITZ和快速游戏的全球排行榜",
+        "View previous seasons":"查看上赛季",
+        "View previous weeks":"查看前周",
+        "Back to the present":"返回当前",
+        "LEADERBOARD FOR":"排行榜，来自",
         "ACHIEVEMENTS": "成就",
         "VIEW YOUR ACHIEVEMENTS AND THEIR PROGRESS": "查看您的成就及其进度",
         "FETING ACHIEVEMENTS...": "",
@@ -1734,6 +1749,7 @@
         "([0-9]+) TARGETING YOU":"$1人瞄准你",
         "ago • was #([0-9,]+), no score set this week":"前 • 曾经是#$1，本周无成绩",
         "([0-9:]+) • CLICK TO CANCEL":"$1 • 点击取消",
+        "VICTORY IN ([0-9]+)":"在$1秒后获胜",
     };
 
     // 占位符
