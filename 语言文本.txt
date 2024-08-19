@@ -161,6 +161,9 @@
         "Off-season":"淡季",
         "OFF-SEASON":"淡季",
         "UNRANKED":"无排名",
+        "MATCH SUSPENDED": "对局暂停",
+        "Your opponent has disconnected, but may still return.": "您的对手已断开连接，但仍有可能重连。",
+        "Your will gain points as you wait. If your opponent does not return,you win by default.": "您将会获得一分等待奖励。如果对手没有重连，则您直接获胜。",
         //快速游戏相关文本
         "QUICK PLAY": "快速游戏",
         "jump into a currently ongoing match": "加入正在进行的比赛",
@@ -1728,6 +1731,7 @@
         "([0-9]+) TARGETING YOU":"$1人瞄准你",
         "ago • was #([0-9,]+), no score set this week":"前 • 曾经是#$1，本周无成绩",
         "([0-9:]+) • CLICK TO CANCEL":"$1 • 点击取消",
+        "VICTORY IN ([0-9]+)":"在$1秒后获胜",
     };
 
     // 占位符
