@@ -801,7 +801,7 @@
         "\"With this divine power, we'll be unstoppable!\" -Mathis, Core Engineer": "“有了这种神力，我们将势不可挡”——马蒂斯，核心工程师",
         "VIP LIST": "贵宾名单",
         "End the week on weekly leaderboards with a high rank. (+10pts to Top 3, +5pts to Top 10, +3pts to Top 25, +1pts to Top 100)": "以尽可能高的排名结算每周排行榜（前三名+10点，前十名+5点，前25名+3点，前100名加1点）",
-        "Unparalelled luxury for a select few.": "您注定与众不同。",
+        "Unparalleled luxury for a select few.": "您注定与众不同。",
         "THE STARVING ARTIST": "绝处逢生",
         "highest floor discovered while using the \"No Hold\" and \"All-Spin\" mods": "在启用“禁止暂存”和“ALL-Spin”模组的情况下抵达的最高层数",
         "Creativity is cultivated through limitation.": "创造力会在逆境中成长",
