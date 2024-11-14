@@ -33,7 +33,11 @@ await import('https://greasyfork.org/scripts/466016-tetr-io中文翻译/code/TET
 })()
 ```
 
-基本上第一种方法就行了 第二种方法当备选
+方法3 替换客户端
+加渣渣的个人群831797331群文件自助下载魔改后的源文件
+解压后的获取app.asar文件
+win+r打开运行窗口后输入下面这串代码，点确定会打开一个文件夹 替换文件夹里的 app.asar 即可
+%USERPROFILE%/AppData/Local/Programs/tetrio-desktop/resources
 
 ---
 
@@ -44,8 +48,7 @@ await import('https://greasyfork.org/scripts/466016-tetr-io中文翻译/code/TET
 |          浏览器           |                          脚本管理器                          |
 | :-----------------------: | :----------------------------------------------------------: |
 | 基于 Chromium 内核的浏览器 | [Tampermonkey](http://tampermonkey.net/) / [violentmonkey](https://violentmonkey.github.io/) |
-|       Safari 浏览器       |                         没有 Mac 设备                          |
-|      Firefox 浏览器       |                           暂未测试                           |
+|       Safari 浏览器       | [Userscripts]https://apps.apple.com/us/app/userscripts/id1463298887|
 
 #### 安装脚本
 
