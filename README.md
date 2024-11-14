@@ -48,7 +48,7 @@ win+r打开运行窗口后输入下面这串代码，点确定会打开一个文
 |          浏览器           |                          脚本管理器                          |
 | :-----------------------: | :----------------------------------------------------------: |
 | 基于 Chromium 内核的浏览器 | [Tampermonkey](http://tampermonkey.net/) / [violentmonkey](https://violentmonkey.github.io/) |
-|       Safari 浏览器       | [Userscripts]https://apps.apple.com/us/app/userscripts/id1463298887|
+|       Safari 浏览器       | [Userscripts](https://apps.apple.com/us/app/userscripts/id1463298887)|
 
 #### 安装脚本
 
