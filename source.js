@@ -755,7 +755,7 @@
         "\"Comes in 8 different flavors!\"":"有 8 种不同口味！",
         "\"BLOCK RATIONING\"":"方块配给专家",
         "\"Adversity favors the resourceful.\"":"逆境于智者有益。",
-        "\"TALENTLESS"\":"无才",
+        "\"TALENTLESS\"":"无才",
         "\"Reaching deep down but coming back empty every time.\"":"藏锋守拙，从不出手。",
         "\"DEADLOCK\"":"“僵局”",
         "\"SWAMP WATER\"":"“沼泽水特调”",
