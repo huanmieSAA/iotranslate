@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      1.4.5
-// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120，B4093以及方块群友。1.4.5更新：补充文本。大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
+// @version      1.4.6
+// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120，B4093以及方块群友。1.4.6更新：增加文本。大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
 // @downloadURL https://update.greasyfork.org/scripts/466016/TETRIO%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91.user.js
@@ -1453,6 +1453,64 @@
         "A connection error has occured": "发生了一个连接错误",
         "GAME CANCELLED": "对局中止",
         "THIS GAME WAS CANCELLED BECAUSE A PLAYER HAS LEFT.YOUR RATING WILL NOT BE ADJUSTED.": "由于一名玩家中途退出，本局游戏已中止。你的评分不会受到调整。",
+        //活动
+        "EVENT": "活动",
+        "ROLLING THE SNOWMAN": "滚动的雪雪弗斯",
+        "highest floor discovered with the \"Snowball Board\" mod": "在启用“雪球版面”模组下抵达的最高层数",
+        "\"No matter how many times you're rolled, we all melt in the end.\" —Snowcrates": "“无论如何努力，冰雪终会融化。” —雪雪弗斯",
+        "LIMITED TIME EVENT": "限时活动",
+        "SNOWBALL BOARD": "雪球版面",
+        "start with a 4x4 board, then roll it larger and larger": "从4X4的版面开始，然后越滚越大！",
+        "Play with this": "游玩",
+        "all-new mod": "全新模组",
+        "and level up the limited": "以获取并升级",
+        "Rolling The Snowman":"滚动的雪雪弗斯",
+        "achievement.": "成就。",
+        "EVENT ENDS IN": "活动结束倒计时：",
+        "DAYS": "天",
+        "At the end of the year, your rank in the achievement will grant you a": "本年度结束时，将会以您的该成就排名会奖励您一个",
+        "special badge": "特别徽章",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        //周边
+        "MERCH": "周边",
+        "Welcome to the official TETR.IO merch store": "欢迎光临 TETR.IO 官方商城",
+        "You've found the place for all official TETR.IO goodies. Do check out the collection at your leisure!": "你发现了 TETR.IO 官方的所有好物。请在闲暇时查看这些收藏品！",
+        "ORIGINAL SOUNDTRACK": "原声音乐",
+        "Zenith Tower - TETR.IO Original Soundtrack": "天顶之塔 - TETR.IO 原声音乐",
+        "Listen to all the tracks from TETR.IO's Quick Play 2 gamemode in lossless quality, together with additional goodies like sheet music, a piano version and full stems!": "以无损音质聆听 TETR.IO 快速游戏 2 模式中的所有曲目，还有乐谱、钢琴版和完整音轨等其他好东西！",
+        "Holidays 2023 - TETR.IO Original Soundtrack": "2023 节日 - TETR.IO 原声音乐",
+        "As a 2023 holidays special, our programmer, sound designer and composer Dr Ocelot has created two very special tracks, a main menu remix and a new Blitz song! Remastered in 2024.": "作为 2023 年的节日特辑，我们的程序员、音效设计师和作曲家 Ocelot 博士创作了两首非常特别的曲目，其中一首是主菜单混音版音乐，另一首是新的Blitz音乐！在2024 年重新制作。",
+        "Holidays 2024 - TETR.IO Original Soundtrack": "2024 节日 - TETR.IO 原声音乐",
+        "TETR.IO once again gets a festive makeover, which wouldn't be complete without a new soundtrack! Including new renditions of the 2023 tracks, as well as new tracks for the limited-time Snowball Board event!": "TETR.IO 在节日期间再次改头换面，如果没有新的配乐，那就太不COOOOOL了！包括 2023 曲目的全新演绎，以及限时活动雪球版面的新曲目！",
+        "Free download": "免费下载",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
     };
 
     // 悬停文本
@@ -1618,9 +1676,7 @@
         "If enabled, always shows the simpler thumbnails for other players. This increases performance in games between 2 and 8 players, but looks less nice.": "如果启用，则始终显示其他玩家更简单的缩略图。这可以提高在2到8名玩家之间对局的性能，但看起来会不太好。",
         "If enabled, the background of Quick Play does not animate.": "如果启用，快速游戏的背景不会播放动画",
         "If enabled, the background of Super Lobbies (rooms of 100+ players) does not animate (outside of the intro).": "如果启用，超级房间的背景不会动画化（开始前除外）",
-        "": "",
-        "": "",
-        "": "",
+        "Bottled Snowman\nThe remains of a once great snowman...\nBadge awarded to those with a Bronze rank 'Rolling The Snowman' achievement.": "瓶装雪人 \n曾经是个大雪人",
         "": "",
         "": "",
         "": "",
@@ -1753,6 +1809,14 @@
         "This user has a low average VS compared to other players (.*)":"该玩家的VS低于平均水平 $1",
         "This user has a low average APM compared to other players (.*)":"该玩家的APM低于平均水平 $1",
         "This user has a low average PPS compared to other players (.*)":"该玩家的PPS低于平均水平 $1",
+        "Bottled Snowman(.*)": "瓶装雪人$1",
+        "(.*)The remains of a once great snowman...(.*)": "$1曾经是个大雪人$1",
+        "(.*)Badge awarded to those with a Bronze rank 'Rolling The Snowman' achievement.":"该徽章颁发给在“滚动的雪雪弗斯”成就中达到青铜级成就的玩家",
+        "(.*)Badge awarded to those with a Silver rank 'Rolling The Snowman' achievement.":"该徽章颁发给在“滚动的雪雪弗斯”成就中达到白银级成就的玩家",
+        "(.*)Badge awarded to those with a Gold rank 'Rolling The Snowman' achievement.":"该徽章颁发给在“滚动的雪雪弗斯”成就中达到黄金级成就的玩家",
+        "(.*)Badge awarded to those with a Platinum rank 'Rolling The Snowman' achievement.":"该徽章颁发给在“滚动的雪雪弗斯”成就中达到铂金级成就的玩家",
+        "(.*)Badge awarded to those with a Diamond rank 'Rolling The Snowman' achievement.":"该徽章颁发给在“滚动的雪雪弗斯”成就中达到钻石级成就的玩家",
+        "(.*)Badge awarded to those with a top-10 placement in the 'Rolling The Snowman' achievement.":"该徽章颁发给在“滚动的雪雪弗斯”成就中排名前十的玩家",
         "SEASON ([0-9]+) ENDS":"第$1赛季将结束于",
         "SEASON ([0-9]+) STARTS":"第$1赛季将开始于",
         "SEASON ([0-9]+)":"第$1赛季",
@@ -1795,7 +1859,7 @@
         "input:checked + .rc_switch_knob::before": "开",
     };
 
-    // 将键转换为小写，保证无论大小写文本都能进行替换
+    
     const toLowerCaseKeys = (obj) => {
         const result = {};
         for (let key in obj) {
