@@ -56,8 +56,10 @@ win+r打开运行窗口后输入下面这串代码，点确定会打开一个文
 
 前往 [TETR.IO中文翻译 - Greasy Fork](https://greasyfork.org/zh-CN/scripts/466016) 点击 [安装此脚本](https://greasyfork.org/scripts/466016-tetr-io%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91/code/TETRIO%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91.user.js) 后确认安装即可
 
-## 待办
+## 施工计划
 
+自定义房间设置补充翻译
+TETRA CHANNEL补充翻译
 - 
 - 
 - 
