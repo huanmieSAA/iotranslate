@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      1.4.6
-// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120，B4093以及方块群友。1.4.6更新：增加文本。大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
+// @version      1.4.7
+// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120，B4093以及方块群友。1.4.7更新：补充文本。大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
 // @downloadURL https://update.greasyfork.org/scripts/466016/TETRIO%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91.user.js
@@ -596,9 +596,9 @@
         "VICTORY": "获胜",
         "DEFEAT": "落败",
         "MATCH SUSPENDED": "比赛暂停",
-        "Your opponent has disconnected, but may still return.": "你的对手掉线了，但仍可能重新连接。",
-        "You will gain points as you wait. If your opponent does not return, you win by default.":"你在等待时会得到分数。如果倒计时结束后你的对手没有重新连接，将会判你获胜。",
-        "VICTORY IN":"胜利倒计时",
+        "Your opponent has disconnected, but may still return.": "你的对手掉线了，但仍可能重新连接。请稍作等待",
+        "You will gain points as you wait. If your opponent does not return, you win by default.":"你在等待时会获得该回合胜利。如果倒计时结束后你的对手没有重新连接，本场比赛你将获胜。",
+        "VICTORY IN":"获胜倒计时：",
         "BY LEAGUE RATING": "按联赛段位排名",
         "Abandon Match":"挂起比赛",
         "BY XP": "按经验值排名",
@@ -1084,8 +1084,8 @@
         "streamer compatibility mode (slow!)": "流媒体兼容模式（慢！）。",
         "disable third-party advertisements": "禁用第三方广告",
         "EXIT TETR.IO?": "退出TETR.IO？",
-        "": "",
-        "": "",
+        "i'm a grinch (disable most holiday cheer)": "我是格林奇 （禁用节日特效）",
+        "add salt to the board (prevent snow accumulating on it)": "在方块上撒点盐（雪不会堆积在方块上）",
         "": "",
         "": "",
         "": "",
@@ -1676,10 +1676,8 @@
         "If enabled, always shows the simpler thumbnails for other players. This increases performance in games between 2 and 8 players, but looks less nice.": "如果启用，则始终显示其他玩家更简单的缩略图。这可以提高在2到8名玩家之间对局的性能，但看起来会不太好。",
         "If enabled, the background of Quick Play does not animate.": "如果启用，快速游戏的背景不会播放动画",
         "If enabled, the background of Super Lobbies (rooms of 100+ players) does not animate (outside of the intro).": "如果启用，超级房间的背景不会动画化（开始前除外）",
-        "Bottled Snowman\nThe remains of a once great snowman...\nBadge awarded to those with a Bronze rank 'Rolling The Snowman' achievement.": "瓶装雪人 \n曾经是个大雪人",
-        "": "",
-        "": "",
-        "": "",
+        "If checked, most holiday cheer will be disabled. You're boring.": "如果启用，大部分的节日特效将被禁用，你好无趣。",
+        "If checked, there won't be any snow on your stack. The salt is directly sourced from Tetra League.": "如果启用，雪不会堆积在你的方块上。盐由Tetra联盟提供。",
         "": "",
         "": "",
         "": "",
