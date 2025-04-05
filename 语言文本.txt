@@ -1484,7 +1484,7 @@
         "highest floor discovered with the \"PENTR.IO\" mod": "在启用“PENTR.IO”模组下抵达的最高层数",
         "A journey of one thousand six hundred fifty meters starts with a single step.": "1650米的旅程始于一小步。",
         "A FOOL'S ERRAND": "愚昧的徒劳",
-        "Escape floor 1 while using the reversed "PENTR.IO" mod": "在启用“PENTR.IO”模组下抵达第二层",
+        "Escape floor 1 while using the reversed \"PENTR.IO\" mod": "在启用“PENTR.IO”模组下抵达第二层",
         "You'll never escape who you are.": "你永远无法改变你是谁。",
         "you'll never escape who you are": "你永远无法改变你是谁",
         "": "",
