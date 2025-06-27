@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      1.5.1
-// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120，B4093以及方块群友。1.5.1更新：补充文本。大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
+// @version      1.5.2
+// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120，B4093以及方块群友。1.5.2更新：修复频繁开关好友面板导致的性能问题。大家有遇到没翻的文本可以截图发送到xchen5939@gmail.com我会及时添加
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
 // @downloadURL https://update.greasyfork.org/scripts/466016/TETRIO%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91.user.js
@@ -255,6 +255,8 @@
         "scale the tower together with someone you hold close":"与好友一起攀登高塔",
         "reset":"重置",
         "scale the tower!":"攀上高塔！",
+        "challenge the tower!":"挑战高塔！",
+        "overthrow the tower!":"炸毁高塔！",
         "waiting for player":"等待玩家",
         "CLICK TO INVITE A FRIEND":"点此邀请好友",
         "READY!":"准备！",
@@ -705,7 +707,7 @@
         "rounds won with the opponent at match point": "在对手处于赛点时赢得的回合数",
         "Sometimes you need to feel the heat to unlock your best self.": "有时候,你只是需要被推一把。",
         "THE SPIKE OF ALL TIME": "超究极必杀爆发",
-        "largest spike sent (excluding margin time)": "发动的最大spike数（不包含margin加成）",
+        "largest spike sent (base attack, excluding margin time and Surge)": "发动的最大spike数（基本攻击，不包含margin加成和浪涌增压）",
         "Flashy techniques are a staple amongst Tetra League's glory-seeking competitors.":"华丽的技巧是每个想在Tetra联赛中大放异彩的挑战者的标配。",
         "SPEED PLAYER": "速度爱好者",
         "rounds won with a higher PPS than the opponent": "在每秒方块数（PPS）高于对手的情况下获胜的回合数",
@@ -719,7 +721,7 @@
         "Spin to win.": "转出胜利。",
         "Feels good, real good.": "好，很好，非常好。",
         "ZENITH EXPLORER": "天顶探索者",
-        "highest floor discovered": "抵达的最高层数",
+        "highest floor discovered without any mods": "在不启用任何模组的情况下抵达的最高层数",
         "Uncover the mysteries of the Zenith Tower.": "发掘天顶之塔的秘密。",
         "THE LOVERS": "恋人",
         "highest floor discovered with the \"DUO\" mod": "在双人模式下抵达的最高层数",
@@ -843,22 +845,22 @@
         "highest floor discovered with the reversed \"No Hold\" mod": "在启用逆位“禁止暂存”模组的情况下抵达的最高层数",
         "A detachment from even that which is moderate.": "对哪怕是中庸之物的疏离。",
         "a detachment from even that which is moderate": "对哪怕是中庸之物的疏离",
-        "LOADED DICE": "不正当操作",
+        "LOADED DICE": "灌铅之骰",
         "highest floor discovered with the reversed \"Messier Garbage\" mod": "在启用逆位“垃圾之乱”模组的情况下抵达的最高层数",
         "In a rigged game, your mind is the only fair advantage.": "在被操纵的游戏中，你的头脑是唯一合理的优势。",
         "in a rigged game, your mind is the only fair advantage": "在被操纵的游戏中，你的头脑是唯一合理的优势",
         "FREEFALL": "自由下落",
         "highest floor discovered with the reversed \"Gravity\" mod": "在启用逆位“重力”模组的情况下抵达的最高层数",
-        "In retrospect, the ground you stood on never existed in the first place.": "回想起来，你所站立的地面在开始时不存在。",
-        "in retrospect, the ground you stood on never existed in the first place": "回想起来，你所站立的地面在开始时不存在",
+        "The ground you stood on never existed in the first place.": "你所站立的地面在开始时不存在。",
+        "the ground you stood on never existed in the first place": "你所站立的地面在开始时不存在",
         "LAST STAND": "背水一战",
         "highest floor discovered with the reversed \"Volatile Garbage\" mod": "在启用逆位“达摩克利斯之剑”模组的情况下抵达的最高层数",
         "Strength isn't necessary for those with nothing to lose.": "对那些一无所有的人来说，力量并不重要。",
         "strength isn't necessary for those with nothing to lose": "对那些一无所有的人来说，力量并不重要",
         "DAMNATION": "天谴",
         "highest floor discovered with the reversed \"Double Hole Garbage\" mod": "在启用逆位“空洞诅咒”模组的情况下抵达的最高层数",
-        "No more second chances.": "这是你最后的机会。",
-        "no more second chances": "这是你最后的机会",
+        "Neither the freedom of life or peace of death.": "生无自由，死无安宁。",
+        "neither the freedom of life or peace of death": "生无自由，死无安宁",
         "THE EXILE": "放逐",
         "highest floor discovered with the reversed \"Invisible\" mod": "在启用逆位“隐形”模组的情况下抵达的最高层数",
         "Never underestimate blind faith.": "永远不要低估盲目的信仰。",
@@ -877,16 +879,9 @@
         "UNRANKED": "不予排名",
         "This achievement does not contribute to your Achievement Rating.": "此成就不予提供AR。",
         "this achievement does not have a leaderboard": "此成就不予提供排行榜",
-        "LOVERS' PROMISE": "真爱之誓",
-        "highest altitude reached with your TETR.IO Valentine": "和你的TETR.IO情人一起攀登的最高米数",
-        "The impossible promise of an eternity just like this moment.": "沧海桑田，此瞬永恒。",
-        "BLEEDING HEARTS": "血心鉴誓",
-        "highest floor discovered with the reversed \"Duo\" mod": "在启用逆位双人模式的情况下抵达的最高层数",
-        "Even as we bleed, we keep holding on...": "即使我们遍体鳞伤，依然互助前行...",
         "GRAND AUDIENCE": "最佳观众",
         "Type a message containing \"gg\" within 10 seconds after spectating a Quick Play world record being broken": "在观看快速游戏世界纪录被打破后的10秒内在公共频道发送包含“gg”的信息",
         "\"You're not gonna want to miss this one!\" -Arena Ticket Scalper": "“您绝对不想错过这次精彩时刻！” -场馆黄牛",
-        "This achievement was part of the Lover's Day 2025 event. It is no longer available.": "该成就是 2025 年情人节活动的限定成就之一。现已不可获取。",
         "": "",
         "": "",
         "": "",
@@ -1387,6 +1382,7 @@
         "Nobody's online right now.":"当前没有好友在线",
         "private": "私人",
         "In":"处于",
+        "In a public":"处于一场公开",
         "queue":"匹配中",
         "custom room": "自定义房间",
         "game": "对局",
@@ -1402,6 +1398,7 @@
         "You haven't added any friends yet. Click the FRIEND button on a profile to friend them.": "您还没有添加任何好友。单击他人资料页上的“加为好友”按钮即可将其加为好友",
         "If someone outside of your friends list messages you, they'll appear here.": "如果有在你好友名单之外的人给你发信息，他们会出现在这里。",
         "Not connected to online servers. Sit tight, we'll try to reconnect you in the background.": "没有连接到在线服务器。稍等片刻，我们会尝试在后台进行重连。",
+        "Notifications will appear here.":"这里会显示通知。",
         "In Menus": "在主菜单中",
         "appear as usual": "表示你一切正常",
         "AWAY": "离开",
@@ -1479,6 +1476,7 @@
         "THIS GAME WAS CANCELLED BECAUSE A PLAYER HAS LEFT.YOUR RATING WILL NOT BE ADJUSTED.": "由于一名玩家中途退出，本局游戏已中止。你的评分不会受到调整。",
         //活动
         "EVENT": "活动",
+        "LEGACY":"遗留",
         "ROLLING THE SNOWMAN": "滚动的雪雪弗斯",
         "highest floor discovered with the \"Snowball Board\" mod": "在启用“雪球版面”模组下抵达的最高层数",
         "\"No matter how many times you're rolled, we all melt in the end.\" —Snowcrates": "“无论如何努力，冰雪终会融化。” —雪雪弗斯",
@@ -1495,12 +1493,20 @@
         "At the end of the year, your rank in the achievement will grant you a": "本年度结束时，将会以您的该成就排名会奖励您一个",
         "special badge": "特别徽章",
         "This achievement was part of the December 2024 event. It is no longer available.": "此成就是2024年12月的一部分。它将不再可用。",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
-        "": "",
+        "LOVERS' PROMISE": "真爱之誓",
+        "highest altitude reached with your TETR.IO Valentine": "和你的TETR.IO情人一起攀登的最高米数",
+        "The impossible promise of an eternity just like this moment.": "沧海桑田，此瞬永恒。",
+        "BLEEDING HEARTS": "血心鉴誓",
+        "highest floor discovered with the reversed \"Duo\" mod": "在启用逆位双人模式的情况下抵达的最高层数",
+        "Even as we bleed, we keep holding on...": "即使我们遍体鳞伤，依然互助前行...",
+        "This achievement was part of the Lover's Day 2025 event. It is no longer available.": "该成就是 2025 年情人节活动的限定成就之一。现已不可获取。",
+        "THE FOOL": "愚者",
+        "highest floor discovered with the \"PENTR.IO\" mod": "在启用“PENTR.IO”模组下抵达的最高层数",
+        "A journey of one thousand six hundred fifty meters starts with a single step.": "1650米的旅程始于一小步。",
+        "A FOOL'S ERRAND": "愚昧的徒劳",
+        "Escape floor 1 while using the reversed \"PENTR.IO\" mod": "在启用“PENTR.IO”模组下抵达第二层",
+        "You'll never escape who you are.": "你永远无法改变你是谁。",
+        "you'll never escape who you are": "你永远无法改变你是谁",
         "": "",
         "": "",
         "": "",
@@ -1991,19 +1997,57 @@
         }
     }
 
-    function handleMutation(mutationsList) {
-        for (let mutation of mutationsList) {
-            if (mutation.type === "childList" && mutation.addedNodes.length > 0) {
-                for (let i of mutation.addedNodes) {
-                    replaceText(i);
+    // ===== 性能优化部分 =====
+    let isObserverActive = true;
+    let tabKeyTimer = null;
+
+    // 节流处理Mutation回调
+    let mutationQueue = [];
+    let processingMutations = false;
+
+    function processMutations() {
+        if (mutationQueue.length === 0 || !isObserverActive) {
+            processingMutations = false;
+            return;
+        }
+
+        const startTime = performance.now();
+        let processedCount = 0;
+        const MAX_PROCESSING_TIME = 8; // 8ms per frame
+
+        while (mutationQueue.length > 0 && performance.now() - startTime < MAX_PROCESSING_TIME) {
+            const mutation = mutationQueue.shift();
+            if (mutation.addedNodes.length > 0) {
+                for (let node of mutation.addedNodes) {
+                    // 跳过不可见或不需要处理的节点
+                    if (node.nodeType === Node.ELEMENT_NODE && node.offsetParent === null) continue;
+
+                    replaceText(node);
+                    processedCount++;
                 }
             }
         }
+
+        if (mutationQueue.length > 0) {
+            requestAnimationFrame(processMutations);
+        } else {
+            processingMutations = false;
+        }
     }
 
-    replaceText(document.body);
+    function throttledHandleMutation(mutations) {
+        mutationQueue.push(...mutations);
+        if (!processingMutations) {
+            processingMutations = true;
+            requestAnimationFrame(processMutations);
+        }
+    }
 
-    // 使用mouseenter事件替换悬停文本
+    function handleMutation(mutationsList) {
+        throttledHandleMutation(mutationsList);
+    }
+
+    // 替换原有事件监听
     document.addEventListener("mouseenter", event => {
         const target = event.target;
         if (target.hasAttribute?.("title")) {
@@ -2011,7 +2055,33 @@
         }
     }, true);
 
-    // 使用MutationObserver在页面更新时自动替换文本
+    // 好友列表专用优化 - 仅在按下Tab键时触发
+    document.addEventListener('keydown', (event) => {
+        // 仅处理Tab键事件
+        if (event.key === 'Tab') {
+            // 清除之前的定时器（重置暂停时间）
+            clearTimeout(tabKeyTimer);
+
+            if (isObserverActive) {
+                observer.disconnect();
+                isObserverActive = false;
+            }
+
+            // 设置新的定时器（重复按键会重置这个时间）
+            tabKeyTimer = setTimeout(() => {
+                if (!isObserverActive) {
+                    observer.observe(document.body, { childList: true, subtree: true });
+                    isObserverActive = true;
+
+                }
+            }, 500); // 500ms后恢复观察者
+        }
+    });
+
+    // 初始化Observer
     const observer = new MutationObserver(handleMutation);
     observer.observe(document.body, { childList: true, subtree: true });
+
+    // 初始文本替换
+    replaceText(document.body);
 })();
