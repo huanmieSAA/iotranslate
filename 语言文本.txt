@@ -1,3 +1,5 @@
+    // 常规文本
+    const textMap = {
         "WINS AGAINST OPENERS": "对开局策略高胜率",
         "WINS AGAINST INF DS'ERS": "对挖掘策略高胜率",
         "WINS AGAINST STRIDERS": "对火力策略高胜率",
@@ -1364,6 +1366,7 @@
         "Nobody's online right now.":"当前没有好友在线",
         "private": "私人",
         "In":"处于",
+        "In a public":"处于一场公开",
         "queue":"匹配中",
         "custom room": "自定义房间",
         "game": "对局",
@@ -1379,6 +1382,7 @@
         "You haven't added any friends yet. Click the FRIEND button on a profile to friend them.": "您还没有添加任何好友。单击他人资料页上的“加为好友”按钮即可将其加为好友",
         "If someone outside of your friends list messages you, they'll appear here.": "如果有在你好友名单之外的人给你发信息，他们会出现在这里。",
         "Not connected to online servers. Sit tight, we'll try to reconnect you in the background.": "没有连接到在线服务器。稍等片刻，我们会尝试在后台进行重连。",
+        "Notifications will appear here.":"这里会显示通知。",
         "In Menus": "在主菜单中",
         "appear as usual": "表示你一切正常",
         "AWAY": "离开",
@@ -1866,3 +1870,4 @@
         ".replayid::before": "回放id:",
         ".rc_switch_knob::before":"关",
         "input:checked + .rc_switch_knob::before": "开",
+    };
