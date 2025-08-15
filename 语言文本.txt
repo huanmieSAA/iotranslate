@@ -1,5 +1,3 @@
-    // 常规文本
-    const textMap = {
         "WINS AGAINST OPENERS": "对开局策略高胜率",
         "WINS AGAINST INF DS'ERS": "对挖掘策略高胜率",
         "WINS AGAINST STRIDERS": "对火力策略高胜率",
@@ -1388,7 +1386,7 @@
         "AWAY": "离开",
         "appear away, unless you're offline or busy": "显示离开，表示你不在线或很忙",
         "BUSY": "正忙",
-        "appear busy, unless you're offline. receive no notifications. always enabled in TETRA LEAGUE (unless you're invisible)": "显示很忙，除非你是离线的。不会收到任何通知。在TETRA 联赛中总是启用（除非你隐形了）",
+        "appear busy, unless you're offline. receive no notifications. always enabled in TETRA LEAGUE (unless you're invisible)": "显示很忙，除非你是离线的。不会收到任何通知。在TETRA 联赛中总是启用（除非你隐身了）",
         "INVISIBLE": "隐形",
         "appear offline at all times": "始终处于离线状态",
         "REPLAY": "回放",
@@ -1397,6 +1395,7 @@
         "You forfeited a ranked match": "你放弃了一场排位赛",
         "You have been awarded a loss for this match. Please ensure you have the time and internet connection to play! Repeated forfeits are punished (and will be automatically punished in the future). Thank you for understanding!": "你在这场比赛中被判为落败。请确保你有充裕的时间和良好的网络连接来进行比赛! 屡次弃权将受到惩罚（今后将自动受到惩罚）。感谢您的理解!",
         "Spectating a private": "旁观一场私人",
+        "Spectating a public":"旁观一场公开",
         "friends list": "好友列表",
         "has added you to their": "已将您加入到TA的",
         "has": "已经",
@@ -1716,7 +1715,7 @@
         "This achievement grants extra Achievement Rating to those who place in its Top 100 leaderboard.": "此成就给进入前100的玩家提供额外的AR。",
         "This achievement is only visible to the worthy.": "此成就仅对值得的人可见。",
         "This achievement does not contribute to your Achievement Rating.": "此成就不予提供AR。",
-        "": "",
+        "hover over a setting for more info": "将鼠标悬停在设置名称上查看详细说明",
         "": "",
         "": "",
         "": "",
@@ -1870,4 +1869,10 @@
         ".replayid::before": "回放id:",
         ".rc_switch_knob::before":"关",
         "input:checked + .rc_switch_knob::before": "开",
+    };
+
+    // 按 data-id 精确匹配的“部分替换”映射表
+    // key 为 data-id，value 为 [RegExp, replacement]
+    const dataIdMap = {
+        "offline": [/INVISIBLE/g, "隐身"],
     };
