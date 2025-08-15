@@ -1404,7 +1404,7 @@
         "AWAY": "离开",
         "appear away, unless you're offline or busy": "显示离开，表示你不在线或很忙",
         "BUSY": "正忙",
-        "appear busy, unless you're offline. receive no notifications. always enabled in TETRA LEAGUE (unless you're invisible)": "显示很忙，除非你是离线的。不会收到任何通知。在TETRA 联赛中总是启用（除非你隐形了）",
+        "appear busy, unless you're offline. receive no notifications. always enabled in TETRA LEAGUE (unless you're invisible)": "显示很忙，除非你是离线的。不会收到任何通知。在TETRA 联赛中总是启用（除非你隐身了）",
         "INVISIBLE": "隐形",
         "appear offline at all times": "始终处于离线状态",
         "REPLAY": "回放",
@@ -1413,6 +1413,7 @@
         "You forfeited a ranked match": "你放弃了一场排位赛",
         "You have been awarded a loss for this match. Please ensure you have the time and internet connection to play! Repeated forfeits are punished (and will be automatically punished in the future). Thank you for understanding!": "你在这场比赛中被判为落败。请确保你有充裕的时间和良好的网络连接来进行比赛! 屡次弃权将受到惩罚（今后将自动受到惩罚）。感谢您的理解!",
         "Spectating a private": "旁观一场私人",
+        "Spectating a public":"旁观一场公开",
         "friends list": "好友列表",
         "has added you to their": "已将您加入到TA的",
         "has": "已经",
@@ -1732,7 +1733,7 @@
         "This achievement grants extra Achievement Rating to those who place in its Top 100 leaderboard.": "此成就给进入前100的玩家提供额外的AR。",
         "This achievement is only visible to the worthy.": "此成就仅对值得的人可见。",
         "This achievement does not contribute to your Achievement Rating.": "此成就不予提供AR。",
-        "": "",
+        "hover over a setting for more info": "将鼠标悬停在设置名称上查看详细说明",
         "": "",
         "": "",
         "": "",
@@ -1888,10 +1889,16 @@
         "input:checked + .rc_switch_knob::before": "开",
     };
 
+    // 按 data-id 精确匹配的“部分替换”映射表
+    // key 为 data-id，value 为 [RegExp, replacement]
+    const dataIdMap = {
+        "offline": [/INVISIBLE/g, "隐身"],
+    };
+
     const toLowerCaseKeys = (obj) => {
         const result = {};
         for (let key in obj) {
-            if (obj.hasOwnProperty(key)) {
+            if (Object.prototype.hasOwnProperty.call(obj, key)) {
                 result[key.toLowerCase()] = obj[key];
             }
         }
@@ -1908,69 +1915,115 @@
             return (
                 currentNode.nodeType === Node.ELEMENT_NODE &&
                 (
-                currentNode.getAttribute("data-uid") === "5f4ca7f5fdcc602e78a65bba" ||
-                ["breadcrumbs", "dirtyflag_gfx", "dirtyflag_net", "dirtyflag_state", "dirtyflag_client", "dirtyflag_gl"].includes(currentNode.getAttribute("id")) ||
-                ["user", "leagueplayer_name", "primary", "uniflex-item"].some(className => currentNode.classList.contains(className)) ||
-                currentNode.className === "chat_message ig_chat_message" ||
-                currentNode.className === "chat_message dm_chat_message" ||
-                currentNode.className === "chat_message ig_chat_message roomownerchat" ||
-                ["supporterchat", "supporterchat_t1", "supporterchat_t2", "supporterchat_t3", "supporterchat_t4"].some(className => currentNode.classList.contains(className)) ||
-                currentNode.classList.contains("user-tooltip") ||
-                currentNode === document.querySelector('.tetra_modal h2') ||
-                currentNode.getAttribute("data-username")
-            )
-        );
-    }
-
-    let currentNode = node;
-    while (currentNode) {
-        if (isExcluded(currentNode)) {
-            return true;
+                    currentNode.getAttribute("data-uid") === "5f4ca7f5fdcc602e78a65bba" ||
+                    ["breadcrumbs", "dirtyflag_gfx", "dirtyflag_net", "dirtyflag_state", "dirtyflag_client", "dirtyflag_gl"].includes(currentNode.getAttribute("id")) ||
+                    ["user", "leagueplayer_name", "primary", "uniflex-item"].some(className => currentNode.classList.contains(className)) ||
+                    currentNode.className === "chat_message ig_chat_message" ||
+                    currentNode.className === "chat_message dm_chat_message" ||
+                    currentNode.className === "chat_message ig_chat_message roomownerchat" ||
+                    ["supporterchat", "supporterchat_t1", "supporterchat_t2", "supporterchat_t3", "supporterchat_t4"].some(className => currentNode.classList.contains(className)) ||
+                    currentNode.classList.contains("user-tooltip") ||
+                    currentNode === document.querySelector('.tetra_modal h2') ||
+                    currentNode.getAttribute("data-username")
+                )
+            );
         }
-        currentNode = currentNode.parentNode;
-    }
-    return false;
-}
 
-    // 替换页面文本
+        let currentNode = node;
+        while (currentNode) {
+            if (isExcluded(currentNode)) return true;
+            currentNode = currentNode.parentNode;
+        }
+        return false;
+    }
+
+    // 查找最近的祖先 data-id
+    function findNearestDataId(node) {
+        let current = node.parentNode;
+        while (current && current !== document) {
+            if (current.nodeType === Node.ELEMENT_NODE) {
+                const did = current.getAttribute("data-id");
+                if (did && dataIdMap.hasOwnProperty(did)) return did;
+            }
+            current = current.parentNode;
+        }
+        return null;
+    }
+
+    // 应用 data-id 的部分替换
+    function applyDataIdReplaceToText(text, dataId) {
+        const rule = dataIdMap[dataId];
+        if (!rule) return { text, replaced: false };
+        const [pattern, replacement] = rule;
+        const newText = text.replace(pattern, replacement);
+        return { text: newText, replaced: newText !== text };
+    }
+
+    // 将特殊正则映射应用到纯文本
+    function applySpecialMaps(text) {
+        let out = text;
+        for (let [key, value] of Object.entries(specialTextMap)) {
+            const re = new RegExp(key, "gi");
+            const replaced = out.replace(re, value);
+            if (replaced !== out) out = replaced;
+        }
+        return out;
+    }
+
+    // 替换文本节点内容
     function replaceText(node) {
         if (node.nodeType === Node.ELEMENT_NODE) {
-            let text = node.innerHTML;
-            const regex = /<.*?>/g;
-            let tags = text.match(regex);
-            text = text.replace(regex, "<>").replace(/&nbsp;/g, " ");
-            const nodeNameList = ["DIV", "H1", "H2", "H3", "P", "A", "SPAN"];
-            if (nodeNameList.includes(node.nodeName) && lowerTextMap.hasOwnProperty(text.toLowerCase()) && !shouldExclude(node)) {
-                text = lowerTextMap[text.toLowerCase()];
-                node.innerHTML = text.replace(/<>+/g, () => tags.shift() ?? "<>");
-            }
-            // 替换占位符
-            if (node.hasAttribute?.("placeholder") && lowerPlaceholderMap.hasOwnProperty(node.getAttribute("placeholder").toLowerCase())) {
-                node.setAttribute("placeholder", lowerPlaceholderMap[node.getAttribute("placeholder").toLowerCase()]);
-            }
-            // 替换伪元素文本
-            const styleSheet = document.styleSheets[0];
-            for (let [key, value] of Object.entries(lowerPseudoElementMap)) {
-                if (node.matches(key.split("::")[0])) {
-                    styleSheet.addRule(key, `content: "${value}";`);
+            // 占位符替换
+            if (node.hasAttribute?.("placeholder")) {
+                const ph = node.getAttribute("placeholder");
+                if (ph && lowerPlaceholderMap.hasOwnProperty(ph.toLowerCase())) {
+                    node.setAttribute("placeholder", lowerPlaceholderMap[ph.toLowerCase()]);
                 }
             }
-        } else if (node.nodeType === Node.TEXT_NODE) {
-            let text = node.nodeValue.trim();
-            if (lowerTextMap.hasOwnProperty(text.toLowerCase()) && !shouldExclude(node)) {
-                node.nodeValue = lowerTextMap[text.toLowerCase()];
-            } else {
-                for (let [key, value] of Object.entries(specialTextMap)) {
-                    const regex = new RegExp(key, "gi");
-                    const replacedText = text.replace(regex, value);
-                    if (text !== replacedText) {
-                        node.nodeValue = replacedText;
-                        text = replacedText;
+
+            // 伪元素文本替换
+            try {
+                let styleSheet = document.styleSheets[0];
+                if (!styleSheet) {
+                    const styleEl = document.createElement('style');
+                    document.head.appendChild(styleEl);
+                    styleSheet = styleEl.sheet;
+                }
+                for (let [key, value] of Object.entries(lowerPseudoElementMap)) {
+                    const baseSelector = key.split("::")[0];
+                    if (node.matches && node.matches(baseSelector)) {
+                        const ruleText = `${key}{content:"${value}";}`;
+                        if (styleSheet.insertRule) {
+                            styleSheet.insertRule(ruleText, styleSheet.cssRules.length);
+                        } else if (styleSheet.addRule) {
+                            styleSheet.addRule(key, `content:"${value}";`);
+                        }
                     }
                 }
+            } catch (e) {}
+        } else if (node.nodeType === Node.TEXT_NODE) {
+            let text = node.nodeValue.trim();
+            if (!text) return;
+
+            // data-id 替换（只替换匹配部分）
+            const nearestDataId = findNearestDataId(node);
+            if (nearestDataId) {
+                const { text: newText } = applyDataIdReplaceToText(text, nearestDataId);
+                text = newText;
             }
-            return;
+
+            // 全局整句替换（不覆盖已替换部分 text 中未匹配 data-id 的文本）
+            if (lowerTextMap.hasOwnProperty(text.toLowerCase()) && !shouldExclude(node)) {
+                text = lowerTextMap[text.toLowerCase()];
+            }
+
+            // 特殊正则替换
+            text = applySpecialMaps(text);
+
+            node.nodeValue = text;
         }
+
+        // 递归处理子节点
         for (let i of node.childNodes) {
             replaceText(i);
         }
@@ -1985,69 +2038,27 @@
                 tooltip.setAttribute("title", lowerTooltipMap[title.toLowerCase()]);
                 tooltip.removeAttribute("data-original-title");
             } else {
-                for (let [key, value] of Object.entries(specialTextMap)) {
-                    const regex = new RegExp(key, "gi");
-                    const replacedTitle = title.replace(regex, value);
-                    if (title !== replacedTitle) {
-                        tooltip.setAttribute("title", replacedTitle);
-                        title = replacedTitle;
-                    }
-                }
+                title = applySpecialMaps(title);
+                tooltip.setAttribute("title", title);
             }
         }
     }
 
-    // ===== 性能优化部分 =====
-    let isObserverActive = true;
-    let tabKeyTimer = null;
-
-    // 节流处理Mutation回调
-    let mutationQueue = [];
-    let processingMutations = false;
-
-    function processMutations() {
-        if (mutationQueue.length === 0 || !isObserverActive) {
-            processingMutations = false;
-            return;
-        }
-
-        const startTime = performance.now();
-        let processedCount = 0;
-        const MAX_PROCESSING_TIME = 8; // 8ms per frame
-
-        while (mutationQueue.length > 0 && performance.now() - startTime < MAX_PROCESSING_TIME) {
-            const mutation = mutationQueue.shift();
-            if (mutation.addedNodes.length > 0) {
-                for (let node of mutation.addedNodes) {
-                    // 跳过不可见或不需要处理的节点
-                    if (node.nodeType === Node.ELEMENT_NODE && node.offsetParent === null) continue;
-
-                    replaceText(node);
-                    processedCount++;
-                }
-            }
-        }
-
-        if (mutationQueue.length > 0) {
-            requestAnimationFrame(processMutations);
-        } else {
-            processingMutations = false;
-        }
-    }
-
-    function throttledHandleMutation(mutations) {
-        mutationQueue.push(...mutations);
-        if (!processingMutations) {
-            processingMutations = true;
-            requestAnimationFrame(processMutations);
-        }
-    }
-
+    // MutationObserver 处理新增节点
     function handleMutation(mutationsList) {
-        throttledHandleMutation(mutationsList);
+        for (let mutation of mutationsList) {
+            if (mutation.type === "childList" && mutation.addedNodes.length > 0) {
+                for (let node of mutation.addedNodes) {
+                    replaceText(node);
+                }
+            }
+        }
     }
 
-    // 替换原有事件监听
+    // 初始文本替换
+    replaceText(document.body);
+
+    // 悬停文本事件
     document.addEventListener("mouseenter", event => {
         const target = event.target;
         if (target.hasAttribute?.("title")) {
@@ -2055,33 +2066,26 @@
         }
     }, true);
 
-    // 好友列表专用优化 - 仅在按下Tab键时触发
-    document.addEventListener('keydown', (event) => {
-        // 仅处理Tab键事件
-        if (event.key === 'Tab') {
-            // 清除之前的定时器（重置暂停时间）
-            clearTimeout(tabKeyTimer);
+    // MutationObserver
+    const observer = new MutationObserver(handleMutation);
+    observer.observe(document.body, { childList: true, subtree: true });
 
+    // ===== 好友列表专用优化 =====
+    let tabKeyTimer = null;
+    let isObserverActive = true;
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Tab') {
+            clearTimeout(tabKeyTimer);
             if (isObserverActive) {
                 observer.disconnect();
                 isObserverActive = false;
             }
-
-            // 设置新的定时器（重复按键会重置这个时间）
             tabKeyTimer = setTimeout(() => {
                 if (!isObserverActive) {
                     observer.observe(document.body, { childList: true, subtree: true });
                     isObserverActive = true;
-
                 }
-            }, 500); // 500ms后恢复观察者
+            }, 500);
         }
     });
-
-    // 初始化Observer
-    const observer = new MutationObserver(handleMutation);
-    observer.observe(document.body, { childList: true, subtree: true });
-
-    // 初始文本替换
-    replaceText(document.body);
 })();
