@@ -233,7 +233,7 @@
         "reach floor 3 to unlock": "抵达3层解锁",
         "non-garbage minos are only visible once every five seconds": "非垃圾行方块每五秒显形一次",
         "reach floor 7 to unlock": "抵达7层解锁",
-        "all-spins are rewarded, but doing the same clear twice is penalized": "all-spins将启用奖励，但重复使用相同的spin消除将会受到惩罚",
+        "all-spins are rewarded, but doing the same clear twice is penalized": "all-spins将启用奖励，但重复使用相同的攻击文本将会受到惩罚",
         "reach floor 8 to unlock": "抵达8层解锁",
         DUO: "双人模式",
         "scale the tower together with someone you hold close": "与好友一起攀登高塔",
