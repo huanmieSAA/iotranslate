@@ -726,7 +726,7 @@
         "When the world descends into chaos, the grandmaster remains at peace.": "纵使世界混乱，大师亦巍然不动。",
         "THE ESCAPE ARTIST": "金蝉脱壳",
         '"An impossible situation! A daring illusionist! Will he make it out alive?"': "“绝对不可能逃脱的处境加上一个大胆的魔术师！他能创造奇迹吗？”",
-        'garbage lines cleared using Spins while using the "Double Hole Garbage", "Messier Garbage" and "All-Spin" mods': "在启用“空洞诅咒”，“垃圾之乱”和“ALL-SPIN”模组的情况下消除的垃圾行数",
+        'garbage lines cleared using Spins while using the "Double Hole Garbage", "Messier Garbage" and "All-Spin" mods': "在启用“空洞诅咒”，“垃圾之乱”和“ALL-SPIN”模组的情况下使用旋转消除的垃圾行数",
         "EMPEROR'S DECADENCE": "皇帝的懦弱",
         'highest floor discovered while using the "Expert Mode", "Double Hole Garbage" and "No Hold" mods': "在启用“专家模式”，“空洞诅咒”和“禁止暂存”模组的情况下抵达的最高层数",
         "The Devil's lesson in humility.": "吃一堑，长一智。",
