@@ -48,7 +48,7 @@
 
 ### 客户端
 
-[github下载app.asar](https://github.com/huanmieSAA/iotranslate/releases/download/main/app.asar)
+[github下载app.asar](https://github.com/huanmieSAA/iotranslate/releases/download/main/app.asar) /github下载太慢也可加入探索群863282838或研究群764916351在群文件找到TETR.IO汉化客户端源.zip压缩包解压即可
 
 按 `win`+`r` 打开运行窗口后输入下面这串代码，点确定会打开一个文件夹，用下载的 `app.asar`粘贴替换文件夹里的 `app.asar` 文件后重启客户端，即可自动运行翻译
 
