@@ -13,11 +13,6 @@
 
 </div>
 
-> [!NOTE]  
-> 本项目已进行现代化重构，现在可以获得更好的使用体验了！
->
-> 代码开发将迁移到 [tetrio-chinese](https://github.com/A-Minos/tetrio-chinese) 仓库中进行
-
 <details>
 <summary>目录</summary>
 
@@ -53,55 +48,14 @@
 
 ### 客户端
 
-#### 方法一
+[github下载app.asar](https://github.com/huanmieSAA/iotranslate/releases/download/main/app.asar)
 
-访问 [Github Actions](https://github.com/A-Minos/tetrio-plus-plus/actions/workflows/build.yml) 或者 [nightly.link](https://nightly.link/A-Minos/tetrio-plus-plus/workflows/build/feat%2Fcustomize) 页面[^3]，下载最新的构建产物 `artifact.zip`，解压两次后会得到 `app.asar` 文件
-
-按 `win`+`r` 打开运行窗口后输入下面这串代码，点确定会打开一个文件夹，粘贴替换文件夹里的 `app.asar` 文件后重启客户端，在 TETR.​IO PLUS 的设置窗口内启用翻译功能即可[^4]
+按 `win`+`r` 打开运行窗口后输入下面这串代码，点确定会打开一个文件夹，用下载的 `app.asar`粘贴替换文件夹里的 `app.asar` 文件后重启客户端，即可自动运行翻译
 
 ```text
 %USERPROFILE%/AppData/Local/Programs/tetrio-desktop/resources
 ```
 
-[^3]: 二选一即可，前者是需要登录后才能下载构建产物，后者则不需要登录也能下载
-
-#### 方法二
-
-加入渣渣的个人 QQ 群 [831797331](https://qm.qq.com/cgi-bin/qm/qr?k=EKq625P5qpas9-m5lVFTDnyCgR1I9yPw&authKey=zqbyY33MW7xTvSEBm+fqVv7lrq3EhV7UuVPrYnQZTal9dQpkD9XM3ViHSu2QnGb3)，在群文件内下载魔改后的 TETR.​IO PLUS 压缩包，解压后会得到 `app.asar` 文件
-
-按 `win`+`r` 打开运行窗口后输入下面这串代码，点确定会打开一个文件夹，粘贴替换文件夹里的 `app.asar` 文件后重启客户端，在 TETR.​IO PLUS 的设置窗口内启用翻译功能即可[^4]
-
-```text
-%USERPROFILE%/AppData/Local/Programs/tetrio-desktop/resources
-```
-
-[^4]: 如果默认没有显示设置窗口，可以在 TETR.​IO 的主窗口按 `Ctrl`+`T` 来打开设置窗口
-
-> [!WARNING]
-> 从 v10 开始，客户端默认禁用 DevTools，且使用 [方法一](#方法一) 与 [方法二](#方法二) 可以拥有更好的体验，所以不再推荐以下两种方法
->
-><details>
-><summary>已弃用的方法</summary>
->
->#### 方法三
->
->直接在 DevTools 的 Console 中粘贴下面这串代码，回车后会自动加载脚本并启用翻译功能
->
->```JavaScript
->await import('https://greasyfork.org/scripts/466016-tetr-io 中文翻译/code/TETRIO 中文翻译.user.js')
->```
->
->#### 方法四
->
->直接在 DevTools 的 Console 中粘贴下面这串代码，回车后会自动加载脚本并启用翻译功能
->
->```JavaScript
->(() => {
->    const e = document.createElement('script')
->    e.setAttribute('src', 'https://greasyfork.org/scripts/466016-tetr-io 中文翻译/code/TETRIO 中文翻译.user.js')
->    document.head.appendChild(e)
->})()
->```
 >
 ></details>
 
@@ -122,13 +76,13 @@
 > [!IMPORTANT]
 > 请在安装脚本管理器后再安装脚本
 
-前往 [TETR.​IO 中文翻译 - Greasy Fork](https://greasyfork.org/zh-CN/scripts/466016) 点击 [安装此脚本](https://greasyfork.org/scripts/466016-tetr-io%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91/code/TETRIO%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91.user.js) 后确认安装即可
+前往 [TETR.​IO 中文翻译 - Greasy Fork](https://greasyfork.org/zh-CN/scripts/466016) 点击 [安装此脚本](https://greasyfork.org/scripts/466016-tetr-io%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91/code/TETRIO%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91.user.js) [国内源](https://gitee.com/huanmes/iotranslate/releases/download/iotranv1.0/iotranslate.user.js)后确认安装即可
 
 ## 施工计划
 
-- [x] 已知遗漏的内容的翻译补充
-  - [x] 自定义游戏 -> 房间设置
-  - [x] TETRA 频道
+- [√] 已知遗漏的内容的翻译补充
+  - [√] 自定义游戏 -> 房间设置
+  - [ ] TETRA 频道
 - [ ] 其他遗漏的翻译补充
 - [ ] 术语润色
 - [ ] 其他功能补充
