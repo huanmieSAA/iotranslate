@@ -2,7 +2,7 @@
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
 // @version      2.1.4
-// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120，B4093以及方块群友。2.1.4：补充未汉化文本。
+// @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120，B4093，scdhh，棉soft以及方块群友。2.1.4：补充未汉化文本。
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
 // @grant        unsafeWindow
