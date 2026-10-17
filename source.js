@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      2.2.3
+// @version      2.2.4
 // @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120，B4093，scdhh，棉soft以及方块群友。
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
@@ -861,6 +861,8 @@
         SOLO: "单人模式",
         "challenge yourself and top the leaderboards": "挑战自我，登上排行榜的榜首。",
         "press START to begin playing": "按下开始游戏进行游玩",
+        "retry":"再来一把",
+        "back to title":"返回主页面",
         //40行竞速相关文本
         "CLEAR 40 LINES!": "消除四十行！",
         "GO!": "开始！",
