@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      2.2.2
+// @version      2.2.3
 // @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120，B4093，scdhh，棉soft以及方块群友。
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
@@ -2517,8 +2517,28 @@
         header.innerHTML = header.innerHTML;
     }
 
+    // 联赛页面反复重建这两块说明；只让这些小区域在绘制前完成翻译。
+    function getLiveLeagueBlock(element) {
+        const block = element?.closest?.("#enter_matchmaking, .scroller_block");
+        return block && (block.id === "enter_matchmaking" || block.querySelector?.("#tetra_jump_tl")) ? block : null;
+    }
+
     function enqueueTranslation(node) {
         if (!node.isConnected || ![Node.ELEMENT_NODE, Node.TEXT_NODE].includes(node.nodeType)) return;
+        const leagueBlock = getLiveLeagueBlock(node.nodeType === Node.ELEMENT_NODE ? node : node.parentNode);
+        if (leagueBlock) {
+            measureTranslationBatch("league-block", 1, () => replaceText(node));
+            return;
+        }
+        // 包含这两块的外层容器被整体插入时，也不能等待普通分片扫描。
+        const addedLeagueBlocks = new Set();
+        for (const marker of node.querySelectorAll?.("#enter_matchmaking, #tetra_jump_tl") ?? []) {
+            const block = getLiveLeagueBlock(marker);
+            if (block) addedLeagueBlocks.add(block);
+        }
+        for (const block of addedLeagueBlocks) {
+            measureTranslationBatch("league-block", 1, () => replaceText(block));
+        }
         // 在线计时每次更新都会恢复原文；在当前微任务内翻译，避免排队期间绘制英文。
         // 同时覆盖 textContent/innerHTML 重建文本、nodeValue 更新及整个元素重建。
         if (node.nodeType === Node.ELEMENT_NODE && node.getAttribute("id") === "social_top_sessiontime" ||
