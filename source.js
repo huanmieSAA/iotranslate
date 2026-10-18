@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      2.2.4
+// @version      2.2.5
 // @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120，B4093，scdhh，棉soft以及方块群友。
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
@@ -142,6 +142,7 @@
         "Earn a badge that reflects your final placement!": "您将获得一枚对应您最终排名的徽章",
         "July 26th": "7月26日",
         ": Season 1 ends": "：第一赛季结束",
+        "":"",
         TIMELINE: "时间表",
         "July 26th through August 2nd: Season 1 Post-Season (unranked, Season 1 rules)": "7 月 26 日至 8 月 2 日： 第一赛季过渡赛阶段（无排名，第一赛季规则）",
         "August 2nd": "8月2日",
@@ -188,6 +189,7 @@
         "MATCH SUSPENDED": "对局暂停",
         "Your opponent has disconnected, but may still return.": "您的对手已断开连接，但仍有可能重连。",
         "Your will gain points as you wait. If your opponent does not return,you win by default.": "您将会获得一分等待奖励。如果对手没有重连，则您直接获胜。",
+        "Chat is not available this game, either because a player has disabled it or due to an active ban on a player's account.":"本局游戏中聊天功能不可用，可能是因为某个玩家禁用了聊天或其账户被禁用。",
         //快速游戏相关文本
         "QUICK PLAY": "快速游戏",
         "jump into a currently ongoing match": "加入正在进行的比赛",
