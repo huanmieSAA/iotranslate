@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      2.2.5
+// @version      2.2.6
 // @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120，B4093，scdhh，棉soft以及方块群友。
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
@@ -1211,6 +1211,7 @@
         "NOTIFY ME WHEN SOMEONE INVITES ME TO A ROOM": "当有人邀请我加入一个房间时通知我",
         "OTHER NOTIFICATIONS": "其他通知",
         "NOTIFY ME WHEN A NON-FRIEND SENDS ME A DIRECT MESSAGE": "当陌生人直接给我发信息时通知我",
+        "privacy preferences changed!":"隐私设置已更改！",
         //个性化相关文本
         CUSTOMIZATION: "个性化",
         "use custom background image": "使用自定义背景图片",
@@ -1831,8 +1832,8 @@
         "Use double the screen refresh rate.": "将帧率上限设为屏幕刷新率的两倍。", 
         "Use quadruple the screen refresh rate.": "将帧率上限设为屏幕刷新率的四倍。", 
         "Do not limit the frame rate. This may slow down other programs on your computer.": "不限制帧率。这可能会降低电脑上其他程序的运行速度。",
-        "": "",
-        "": "",
+        "If enabled, allow chatting between yourself and other players in Tetra League.": "启用后，允许你与其他Tetra 联赛玩家进行聊天。",
+        "If enabled, show how much time you've played TETR.IO for.": "启用后，将显示你在 TETR.IO 上的游戏时长。",
     };
 
     // 特殊文本
