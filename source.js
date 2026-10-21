@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TETR.IO中文翻译
 // @namespace    https://github.com/huanmieSAA/iotranslate
-// @version      2.2.6
+// @version      2.2.7
 // @description  将TETR.IO中的大部分可编辑内容翻译成中文。制作鸣谢：mrz,xb，渣渣120，B4093，scdhh，棉soft以及方块群友。
 // @match        https://*.tetr.io/*
 // @grant        GM_registerMenuCommand
@@ -190,6 +190,7 @@
         "Your opponent has disconnected, but may still return.": "您的对手已断开连接，但仍有可能重连。",
         "Your will gain points as you wait. If your opponent does not return,you win by default.": "您将会获得一分等待奖励。如果对手没有重连，则您直接获胜。",
         "Chat is not available this game, either because a player has disabled it or due to an active ban on a player's account.":"本局游戏中聊天功能不可用，可能是因为某个玩家禁用了聊天或其账户被禁用。",
+        "left the room":"离开房间",
         //快速游戏相关文本
         "QUICK PLAY": "快速游戏",
         "jump into a currently ongoing match": "加入正在进行的比赛",
@@ -1828,9 +1829,9 @@
         "Always skip the login screen.": "始终跳过登录界面。",
         "If enabled, ANGLE will run in GL compatibility mode. Use this if your streaming software does not work with TETR.IO out of the box. This may impact performance!": "启用后，ANGLE 将以 GL 兼容模式运行。如果你的直播或录屏软件无法正常捕获 TETR.IO 画面，请尝试启用此选项。这可能会影响游戏性能！",
         "If enabled, most/all third-party ads will not show.": "启用后，将隐藏大部分或全部第三方广告。",
-        "Use the screen refresh rate.": "使用屏幕刷新率作为帧率上限。", 
-        "Use double the screen refresh rate.": "将帧率上限设为屏幕刷新率的两倍。", 
-        "Use quadruple the screen refresh rate.": "将帧率上限设为屏幕刷新率的四倍。", 
+        "Use the screen refresh rate.": "使用屏幕刷新率作为帧率上限。",
+        "Use double the screen refresh rate.": "将帧率上限设为屏幕刷新率的两倍。",
+        "Use quadruple the screen refresh rate.": "将帧率上限设为屏幕刷新率的四倍。",
         "Do not limit the frame rate. This may slow down other programs on your computer.": "不限制帧率。这可能会降低电脑上其他程序的运行速度。",
         "If enabled, allow chatting between yourself and other players in Tetra League.": "启用后，允许你与其他Tetra 联赛玩家进行聊天。",
         "If enabled, show how much time you've played TETR.IO for.": "启用后，将显示你在 TETR.IO 上的游戏时长。",
@@ -2318,6 +2319,9 @@
                     currentNode.className === "chat_message ig_chat_message roomownerchat" ||
                     ["supporterchat", "supporterchat_t1", "supporterchat_t2", "supporterchat_t3", "supporterchat_t4"].some((className) => currentNode.classList.contains(className)) ||
                     currentNode.classList.contains("user-tooltip") ||
+                    // 玩家个性签名及其子节点保留原文。
+                    currentNode.getAttribute("id") === "user_bio" ||
+                    currentNode.classList.contains("tetra_modal_bio") ||
                     // 观战标题中的 span 是玩家名（或人数），不能按词库翻译。
                     currentNode.parentNode?.getAttribute?.("id") === "data_spectate" ||
                     ["SCRIPT", "STYLE", "TEXTAREA"].includes(currentNode.tagName) ||
